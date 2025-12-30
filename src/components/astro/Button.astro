@@ -1,0 +1,35 @@
+---
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary' | 'transparent';
+  isMobileMenu?: boolean;
+  class?: string;
+}
+
+const {
+  href,
+  variant = 'primary',
+  isMobileMenu = false,
+  class: className = '',
+} = Astro.props;
+
+const baseClasses =
+  'text-small font-semibold px-[calc(var(--thin-gap)/1.5)] py-[calc(var(--thin-gap)/2.5)] rounded-[8rem] hover:scale-105 transition-all duration-200 max-[800px]:px-[calc(var(--thin-gap)*2)] max-[800px]:py-thin-gap';
+
+const variantClasses = {
+  primary: 'text-white bg-dark',
+  secondary: 'text-inherit bg-line',
+  transparent: 'text-inherit bg-transparent hover:bg-line',
+};
+
+const mobileMenuClasses = isMobileMenu
+  ? 'max-[800px]:text-[1.4rem] max-[800px]:w-[80vw] max-[800px]:py-2 max-[800px]:mx-auto max-[800px]:transition-all max-[800px]:duration-200 max-[800px]:text-inherit max-[800px]:bg-transparent max-[800px]:rounded-none max-[800px]:hover:bg-transparent'
+  : '';
+
+const classes = `${baseClasses} ${variantClasses[variant]} ${mobileMenuClasses} ${className}`.trim();
+---
+
+<a href={href} class={classes}>
+  <slot />
+</a>
+

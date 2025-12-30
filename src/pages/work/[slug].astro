@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/astro/Header.astro';
+import Footer from '../../components/astro/Footer.astro';
+import Button from '../../components/astro/Button.astro';
+import { getWorkBySlug, getAllWorks } from '../../data/works';
+import { profile } from '../../data/profile';
+
+interface Props {
+  params: { slug: string };
+}
+
+const { slug } = Astro.params;
+const work = getWorkBySlug(slug || '');
+
+if (!work) {
+  return Astro.redirect('/404');
+}
+
+// 静的生成のための全スラッグを取得
+export async function getStaticPaths() {
+  const works = getAllWorks();
+  return works.map((work) => ({
+    params: { slug: work.slug },
+  }));
+}
+---
+
+<BaseLayout title={`${work.title} | Yuki Shimizu`}>
+  <Header />
+  <section class="flex flex-col gap-section-gap py-section-gap">
+    <div id="hero" class="flex flex-col gap-div-gap w-[80vw] max-w-[1400px] mx-auto">
+      <div class="flex flex-row items-center gap-item-gap max-[800px]:flex-col max-[800px]:items-start">
+        <div class="flex flex-col items-start gap-item-gap">
+          <h2>{work.projectTitle}</h2>
+          <span class="flex flex-row items-center gap-thin-gap max-[800px]:items-center max-[800px]:flex-wrap">
+            <p>
+              <b>{work.company}</b>
+            </p>
+            <span id="info" class="flex flex-row items-center gap-[calc(var(--thin-gap)/2)]">
+              <img src="/img/icon/calendar.svg" alt="Year" class="block" />
+              <p>{work.year}</p>
+            </span>
+            {work.tags && work.tags.length > 0 && (
+              <span id="info" class="flex flex-row items-center gap-[calc(var(--thin-gap)/2)]">
+                <img src="/img/icon/tag.svg" alt="Tag" class="block" />
+                <p>{work.tags.join(', ')}</p>
+              </span>
+            )}
+            {work.link && (
+              <Button href={work.link} variant="secondary">
+                Link button
+              </Button>
+            )}
+          </span>
+          <p class="opacity-50 leading-8">{work.detailDescription || work.description}</p>
+        </div>
+        <div class="w-[80%] h-full flex-1 max-[800px]:hidden"></div>
+      </div>
+    </div>
+
+    <div id="work" class="flex flex-col gap-div-gap w-[80vw] max-w-[1400px] mx-auto">
+      <div class="flex flex-col items-start gap-item-gap max-[800px]:flex-col min-w-0">
+        {work.content.map((item, index) => {
+          if (item.type === 'image') {
+            return (
+              <img
+                src={item.src}
+                alt={item.alt || `${work.title} - Image ${index + 1}`}
+                class="block max-w-full h-auto"
+              />
+            );
+          } else {
+            return (
+              <div class="w-full min-w-0 max-w-full">
+                <p class="text-p leading-6 whitespace-pre-line break-words">{item.content}</p>
+              </div>
+            );
+          }
+        })}
+      </div>
+    </div>
+  </section>
+  <Footer profile={profile} />
+</BaseLayout>
+
+
