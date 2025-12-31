@@ -1,7 +1,6 @@
 dist/
 .astro/
 node_modules/
-.cursor/
 public/work/example/img/
 package-lock.json
 
