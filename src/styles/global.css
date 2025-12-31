@@ -20,9 +20,29 @@
     scroll-padding-top: 4rem;
   }
 
-  @media (max-width: 1600px) {
+  /* @media (max-width: 1600px) {
     html {
       font-size: 16px;
+    }
+  } */
+
+  html {
+    font-size: 16px;
+
+    /* ~md */
+    @media (min-width: 376px) and (max-width: 767px) {
+      /* 375pxで16px、767pxで20pxになるように計算 */
+      font-size: clamp(16px, calc(1.0204vw + 12.1735px), 20px);
+    }
+
+    /* md~ */
+    @media (min-width: 768px) {
+      font-size: 1.5vw;
+    }
+
+    /* lg~ */
+    @media (min-width: 1024px) {
+      font-size: 1.3vw;
     }
   }
 
