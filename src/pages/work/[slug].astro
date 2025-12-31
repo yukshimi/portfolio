@@ -97,19 +97,40 @@ export async function getStaticPaths() {
                     style={`--reveal-delay: ${index * 60}ms;`}
                   />
                 );
-              } else {
+              }
+
+              if (item.type === "list") {
+                const listClass =
+                  item.style === "ordered"
+                    ? "list-decimal pl-6"
+                    : "list-disc pl-6";
+
                 return (
                   <div
                     class="w-full min-w-0 max-w-full"
                     data-reveal
                     style={`--reveal-delay: ${index * 60}ms;`}
                   >
-                    <p class="text-p leading-8 whitespace-pre-line break-words">
-                      {item.content}
-                    </p>
+                    <ul class={`text-p leading-8 break-words ${listClass}`}>
+                      {item.items.map((text) => (
+                        <li>{text}</li>
+                      ))}
+                    </ul>
                   </div>
                 );
               }
+
+              return (
+                <div
+                  class="w-full min-w-0 max-w-full"
+                  data-reveal
+                  style={`--reveal-delay: ${index * 60}ms;`}
+                >
+                  <p class="text-p leading-8 whitespace-pre-line break-words">
+                    {item.content}
+                  </p>
+                </div>
+              );
             })
           }
         </div>

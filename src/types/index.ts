@@ -1,9 +1,15 @@
 /**
- * ワークコンテンツの型定義（画像またはテキスト）
+ * ワークコンテンツの型定義（画像・テキスト・リスト）
  */
 export type WorkContent =
   | { type: "image"; src: string; alt?: string }
-  | { type: "text"; content: string };
+  | { type: "text"; content: string }
+  | {
+      type: "list";
+      /** 未指定なら unordered */
+      style?: "unordered" | "ordered";
+      items: string[];
+    };
 
 /**
  * ワーク（作品）の型定義

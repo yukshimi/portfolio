@@ -18,6 +18,8 @@ export const works: Work[] = [
     thumbnail: "/work/salesmarker-web/thumbnail.avif",
     tags: ["Web Design", "Web Development", "WordPress"],
     content: [
+      // 箇条書きを入れたい場合は、こんな形で追加できます：
+      // { type: "list", style: "unordered", items: ["項目1", "項目2"] }
       {
         type: "image",
         src: "/work/salesmarker-web/01.avif",
@@ -27,6 +29,15 @@ export const works: Work[] = [
         type: "text",
         content:
           "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます",
+      },
+      {
+        type: "list",
+        style: "unordered",
+        items: [
+          "項目1項目1項目1項目1項目1項目1項目1項目1項目1項目1項目1項目1項目1項目1項目1",
+          "項目2",
+          "項目3",
+        ],
       },
       {
         type: "image",
