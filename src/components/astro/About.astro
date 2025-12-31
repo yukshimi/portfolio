@@ -11,13 +11,13 @@ const { profile: profileData } = Astro.props;
 
 <section
   id="about"
-  class="flex flex-col gap-div-gap w-[90vw] max-w-[1400px] mx-auto py-section-gap pb-item-gap"
+  class="flex flex-col gap-div-gap w-[100vw] mx-auto py-section-gap bg-dark/5"
 >
   <div
-    class="flex flex-row items-center gap-item-gap max-[800px]:flex-col max-[800px]:items-start"
+    class="flex flex-row items-start gap-item-gap w-[90vw] max-w-[1000px] mx-auto max-[800px]:flex-col max-[800px]:items-start"
   >
     <div
-      class="aspect-square w-full bg-center bg-cover flex-1"
+      class="aspect-square w-[320px] max-w-[45%] bg-center bg-cover flex-none max-[800px]:w-full max-[800px]:max-w-none"
       style={`background-image: url('${profileData.avatar}');`}
     >
     </div>
@@ -25,7 +25,7 @@ const { profile: profileData } = Astro.props;
       <div class="flex flex-col items-start gap-thin-gap max-[800px]:flex-col">
         <div>
           <h2>About me</h2>
-          <p>
+          <p class="mt-2">
             <b>{profileData.name}</b>, {profileData.role}
           </p>
         </div>
