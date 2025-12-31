@@ -7,7 +7,7 @@ import Button from "./Button.astro";
   class="bg-shade-light backdrop-blur-[1rem] py-[calc(var(--thin-gap)/2)] sticky top-0 z-[2]"
 >
   <div
-    class="flex items-center justify-between w-[80vw] max-w-[1400px] mx-auto max-[800px]:w-full max-[800px]:px-4"
+    class="flex items-center justify-between w-[90vw] max-w-[1400px] mx-auto max-[800px]:w-full max-[800px]:px-4"
   >
     <a href="/">
       <img
@@ -30,8 +30,13 @@ import Button from "./Button.astro";
           <Button href="/#work" variant="transparent" isMobileMenu={true}
             >Work</Button
           >
-          <Button href="#contact" variant="primary" isMobileMenu={true}
-            >Get in touch</Button
+          <Button
+            href="#"
+            variant="primary"
+            isMobileMenu={true}
+            attrs={{ "data-contact-open": "true" }}
+          >
+            Get in touch</Button
           >
         </li>
       </ul>

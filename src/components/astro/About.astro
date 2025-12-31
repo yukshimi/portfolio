@@ -11,7 +11,7 @@ const { profile: profileData } = Astro.props;
 
 <section
   id="about"
-  class="flex flex-col gap-div-gap w-[80vw] max-w-[1400px] mx-auto py-section-gap pb-item-gap"
+  class="flex flex-col gap-div-gap w-[90vw] max-w-[1400px] mx-auto py-section-gap pb-item-gap"
 >
   <div
     class="flex flex-row items-center gap-item-gap max-[800px]:flex-col max-[800px]:items-start"
@@ -34,7 +34,11 @@ const { profile: profileData } = Astro.props;
       <span
         class="flex flex-row items-center gap-thin-gap max-[800px]:items-center max-[800px]:flex-wrap"
       >
-        <Button href={profileData.contactUrl || "#"} variant="primary">
+        <Button
+          href={profileData.contactUrl || "#"}
+          variant="primary"
+          attrs={{ "data-contact-open": "true" }}
+        >
           Get in touch
         </Button>
       </span>

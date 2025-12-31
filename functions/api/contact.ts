@@ -10,6 +10,12 @@ type Context = {
   env: Env;
 };
 
+function wantsJsonResponse(request: Request): boolean {
+  const accept = request.headers.get("Accept") ?? "";
+  const modal = request.headers.get("X-Contact-Modal") ?? "";
+  return accept.includes("application/json") || modal === "1";
+}
+
 function isValidEmail(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
@@ -57,10 +63,17 @@ export const onRequestPost = async ({
   request,
   env,
 }: Context): Promise<Response> => {
+  const wantsJson = wantsJsonResponse(request);
   const data = await parseBody(request);
 
   // Honeypot: bots tend to fill hidden fields.
   if ((data.company ?? "").trim() !== "") {
+    if (wantsJson) {
+      return new Response(JSON.stringify({ ok: true }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
     return new Response("ok", { status: 200 });
   }
 
@@ -69,27 +82,67 @@ export const onRequestPost = async ({
   const message = (data.message ?? "").trim();
 
   if (!name || !email || !message) {
+    if (wantsJson) {
+      return new Response(JSON.stringify({ ok: false, error: "Bad Request" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
     return new Response("Bad Request", { status: 400 });
   }
   if (!isValidEmail(email)) {
+    if (wantsJson) {
+      return new Response(JSON.stringify({ ok: false, error: "Bad Request" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
     return new Response("Bad Request", { status: 400 });
   }
   if (name.length > 200 || email.length > 320 || message.length > 5000) {
+    if (wantsJson) {
+      return new Response(JSON.stringify({ ok: false, error: "Bad Request" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
     return new Response("Bad Request", { status: 400 });
   }
 
   const turnstileSecret = (env.TURNSTILE_SECRET_KEY ?? "").trim();
   if (turnstileSecret) {
     const token = (data["cf-turnstile-response"] ?? "").trim();
-    if (!token) return new Response("Forbidden", { status: 403 });
+    if (!token) {
+      if (wantsJson) {
+        return new Response(JSON.stringify({ ok: false, error: "Forbidden" }), {
+          status: 403,
+          headers: { "Content-Type": "application/json" },
+        });
+      }
+      return new Response("Forbidden", { status: 403 });
+    }
 
     const ip = request.headers.get("CF-Connecting-IP");
     const ok = await verifyTurnstile({ secret: turnstileSecret, token, ip });
-    if (!ok) return new Response("Forbidden", { status: 403 });
+    if (!ok) {
+      if (wantsJson) {
+        return new Response(JSON.stringify({ ok: false, error: "Forbidden" }), {
+          status: 403,
+          headers: { "Content-Type": "application/json" },
+        });
+      }
+      return new Response("Forbidden", { status: 403 });
+    }
   }
 
   const resendApiKey = (env.RESEND_API_KEY ?? "").trim();
   if (!resendApiKey) {
+    if (wantsJson) {
+      return new Response(
+        JSON.stringify({ ok: false, error: "Server Misconfigured" }),
+        { status: 500, headers: { "Content-Type": "application/json" } },
+      );
+    }
     return new Response("Server Misconfigured", { status: 500 });
   }
 
@@ -110,6 +163,24 @@ export const onRequestPost = async ({
       reply_to: email,
     }),
   });
+
+  if (wantsJson) {
+    if (sendRes.ok) {
+      return new Response(JSON.stringify({ ok: true }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    const errorText = await sendRes.text().catch(() => "");
+    return new Response(
+      JSON.stringify({
+        ok: false,
+        error: errorText || "Upstream Error",
+      }),
+      { status: 502, headers: { "Content-Type": "application/json" } },
+    );
+  }
 
   const referer = request.headers.get("Referer");
   const fallback = new URL("https://example.invalid/");

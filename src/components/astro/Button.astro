@@ -4,6 +4,7 @@ interface Props {
   variant?: "primary" | "secondary" | "transparent";
   isMobileMenu?: boolean;
   class?: string;
+  attrs?: Record<string, string>;
 }
 
 const {
@@ -11,6 +12,7 @@ const {
   variant = "primary",
   isMobileMenu = false,
   class: className = "",
+  attrs = {},
 } = Astro.props;
 
 const baseClasses =
@@ -23,13 +25,13 @@ const variantClasses = {
 };
 
 const mobileMenuClasses = isMobileMenu
-  ? "max-[800px]:text-[1.4rem] max-[800px]:w-[80vw] max-[800px]:py-2 max-[800px]:mx-auto max-[800px]:transition-all max-[800px]:duration-200 max-[800px]:text-inherit max-[800px]:bg-transparent max-[800px]:rounded-none max-[800px]:hover:bg-transparent"
+  ? "max-[800px]:text-[1.4rem] max-[800px]:w-[90vw] max-[800px]:py-2 max-[800px]:mx-auto max-[800px]:transition-all max-[800px]:duration-200 max-[800px]:text-inherit max-[800px]:bg-transparent max-[800px]:rounded-none max-[800px]:hover:bg-transparent"
   : "";
 
 const classes =
   `${baseClasses} ${variantClasses[variant]} ${mobileMenuClasses} ${className}`.trim();
 ---
 
-<a href={href} class={classes}>
+<a href={href} class={classes} {...attrs}>
   <slot />
 </a>
