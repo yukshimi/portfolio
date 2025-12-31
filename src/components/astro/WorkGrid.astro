@@ -1,5 +1,5 @@
 ---
-import type { Work } from '../../types';
+import type { Work } from "../../types";
 
 interface Props {
   works: Work[];
@@ -11,21 +11,21 @@ const { works } = Astro.props;
 <section id="work" class="flex flex-col gap-section-gap py-section-gap">
   <div class="flex flex-col gap-div-gap w-[80vw] max-w-[1400px] mx-auto">
     <div class="grid gap-thin-gap grid-cols-3 max-[800px]:grid-cols-1">
-      {works.map((work) => (
-        <a href={`/work/${work.slug}/`}>
-          <div
-            class="aspect-square bg-center bg-cover"
-            style={`background-image: url('${work.thumbnail}');`}
-          >
-            <span class="flex flex-col justify-center items-center text-white bg-shade-dark backdrop-blur-[1rem] w-full h-full opacity-0 transition-opacity duration-200 hover:opacity-100">
-              <h3 class="text-center" set:html={work.thumbnailTitle}></h3>
-              <p class="opacity-50">{work.category}</p>
-            </span>
-          </div>
-        </a>
-      ))}
+      {
+        works.map((work) => (
+          <a href={`/work/${work.slug}/`}>
+            <div
+              class="aspect-square bg-center bg-cover"
+              style={`background-image: url('${work.thumbnail}');`}
+            >
+              <span class="flex flex-col justify-center items-center text-white bg-shade-dark backdrop-blur-[1rem] w-full h-full opacity-0 transition-opacity duration-200 hover:opacity-100">
+                <h3 class="text-center" set:html={work.thumbnailTitle} />
+                <p class="opacity-50">{work.category}</p>
+              </span>
+            </div>
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>
-
-

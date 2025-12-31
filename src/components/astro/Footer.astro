@@ -1,6 +1,6 @@
 ---
-import type { Profile } from '../../types';
-import About from './About.astro';
+import type { Profile } from "../../types";
+import About from "./About.astro";
 
 interface Props {
   profile: Profile;
@@ -11,22 +11,32 @@ const { profile: profileData } = Astro.props;
 
 <footer class="gap-0 p-0 bg-line">
   <About profile={profileData} />
-  <div class="flex flex-col gap-div-gap w-[80vw] max-w-[1400px] mx-auto py-item-gap">
-    <div class="flex flex-row items-center justify-between gap-item-gap max-[800px]:flex-col-reverse [&>*]:flex-none">
+  <div
+    class="flex flex-col gap-div-gap w-[80vw] max-w-[1400px] mx-auto py-item-gap"
+  >
+    <div
+      class="flex flex-row items-center justify-between gap-item-gap max-[800px]:flex-col-reverse [&>*]:flex-none"
+    >
       <small class="opacity-50">
         © {new Date().getFullYear()} — Yuki Shimizu
       </small>
-      <span class="flex flex-row items-center gap-thin-gap max-[800px]:items-center max-[800px]:flex-wrap">
+      <span
+        class="flex flex-row items-center gap-thin-gap max-[800px]:items-center max-[800px]:flex-wrap"
+      >
         <small class="opacity-50">Follow me:</small>
         <span class="flex flex-row items-center gap-[calc(var(--thin-gap)/4)]">
-          {profileData.socialLinks.map((social) => (
-            <a href={social.url} class="p-[calc(var(--thin-gap)/4)] rounded-[8rem] hover:bg-line hover:scale-110 transition-all duration-200">
-              <img src={social.icon} alt={social.platform} class="block" />
-            </a>
-          ))}
+          {
+            profileData.socialLinks.map((social) => (
+              <a
+                href={social.url}
+                class="p-[calc(var(--thin-gap)/4)] rounded-[8rem] hover:bg-line hover:scale-110 transition-all duration-200"
+              >
+                <img src={social.icon} alt={social.platform} class="block" />
+              </a>
+            ))
+          }
         </span>
       </span>
     </div>
   </div>
 </footer>
-

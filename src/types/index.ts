@@ -1,9 +1,9 @@
 /**
  * ワークコンテンツの型定義（画像またはテキスト）
  */
-export type WorkContent = 
-  | { type: 'image'; src: string; alt?: string }
-  | { type: 'text'; content: string };
+export type WorkContent =
+  | { type: "image"; src: string; alt?: string }
+  | { type: "text"; content: string };
 
 /**
  * ワーク（作品）の型定義
@@ -70,7 +70,3 @@ export interface SocialLink {
   /** アイコン画像のパス */
   icon: string;
 }
-
-
-
-

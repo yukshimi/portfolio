@@ -1,12 +1,12 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = 'Minimalist portfolio template' } = Astro.props;
+const { title, description = "Minimalist portfolio template" } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,11 +17,7 @@ const { title, description = 'Minimalist portfolio template' } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;600&display=swap"
       rel="stylesheet"
@@ -32,9 +28,3 @@ const { title, description = 'Minimalist portfolio template' } = Astro.props;
     <slot />
   </body>
 </html>
-
-
-
-
-
-

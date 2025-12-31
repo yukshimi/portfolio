@@ -1,5 +1,5 @@
 ---
-import Button from './Button.astro';
+import Button from "./Button.astro";
 
 interface Props {
   title: string;
@@ -11,9 +11,13 @@ const { title, description } = Astro.props;
 
 <section class="flex flex-col gap-section-gap py-section-gap">
   <div class="flex flex-col gap-div-gap w-[80vw] max-w-[1400px] mx-auto">
-    <div class="flex flex-row items-center gap-item-gap max-[800px]:flex-col max-[800px]:items-start [&>*]:flex-none">
+    <div
+      class="flex flex-row items-center gap-item-gap max-[800px]:flex-col max-[800px]:items-start [&>*]:flex-none"
+    >
       <div class="flex flex-col items-start gap-item-gap">
-        <span class="flex flex-col items-start gap-thin-gap max-[800px]:flex-col">
+        <span
+          class="flex flex-col items-start gap-thin-gap max-[800px]:flex-col"
+        >
           <h1>{title}</h1>
           <p class="opacity-50">{description}</p>
         </span>
@@ -22,5 +26,3 @@ const { title, description } = Astro.props;
     </div>
   </div>
 </section>
-
-

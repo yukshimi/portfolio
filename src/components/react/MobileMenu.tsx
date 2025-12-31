@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import type { ReactNode } from 'react';
+import { useState } from "react";
+import type { ReactNode } from "react";
 
 interface MobileMenuProps {
   children: ReactNode;
@@ -28,17 +28,11 @@ export default function MobileMenu({ children }: MobileMenuProps) {
           className={`max-[800px]:content-[url('/img/icon/menu_open.svg')] ${
             isOpen
               ? "max-[800px]:content-[url('/img/icon/menu_close.svg')]"
-              : ''
+              : ""
           }`}
         ></span>
       </button>
-      <nav className={`group ${isOpen ? 'active' : ''}`}>
-        {children}
-      </nav>
+      <nav className={`group ${isOpen ? "active" : ""}`}>{children}</nav>
     </>
   );
 }
-
-
-
-

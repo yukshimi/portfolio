@@ -1,6 +1,6 @@
 ---
-import type { Profile } from '../../types';
-import Button from './Button.astro';
+import type { Profile } from "../../types";
+import Button from "./Button.astro";
 
 interface Props {
   profile: Profile;
@@ -9,12 +9,18 @@ interface Props {
 const { profile: profileData } = Astro.props;
 ---
 
-<section id="about" class="flex flex-col gap-div-gap w-[80vw] max-w-[1400px] mx-auto py-section-gap pb-item-gap">
-  <div class="flex flex-row items-center gap-item-gap max-[800px]:flex-col max-[800px]:items-start">
+<section
+  id="about"
+  class="flex flex-col gap-div-gap w-[80vw] max-w-[1400px] mx-auto py-section-gap pb-item-gap"
+>
+  <div
+    class="flex flex-row items-center gap-item-gap max-[800px]:flex-col max-[800px]:items-start"
+  >
     <div
       class="aspect-square w-full bg-center bg-cover flex-1"
       style={`background-image: url('${profileData.avatar}');`}
-    ></div>
+    >
+    </div>
     <div class="flex flex-col items-start gap-item-gap flex-1">
       <span class="flex flex-col items-start gap-thin-gap max-[800px]:flex-col">
         <span>
@@ -25,13 +31,13 @@ const { profile: profileData } = Astro.props;
         </span>
         <p class="opacity-50">{profileData.bio}</p>
       </span>
-      <span class="flex flex-row items-center gap-thin-gap max-[800px]:items-center max-[800px]:flex-wrap">
-        <Button href={profileData.contactUrl || '#'} variant="primary">
+      <span
+        class="flex flex-row items-center gap-thin-gap max-[800px]:items-center max-[800px]:flex-wrap"
+      >
+        <Button href={profileData.contactUrl || "#"} variant="primary">
           Get in touch
         </Button>
       </span>
     </div>
   </div>
 </section>
-
-
