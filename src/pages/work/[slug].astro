@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/astro/Header.astro";
 import Footer from "../../components/astro/Footer.astro";
+import WorkGrid from "../../components/astro/WorkGrid.astro";
 import Button from "../../components/astro/Button.astro";
 import { getWorkBySlug, getAllWorks } from "../../data/works";
 import { profile } from "../../data/profile";
@@ -12,6 +13,7 @@ interface Props {
 
 const { slug } = Astro.params;
 const work = getWorkBySlug(slug || "");
+const works = getAllWorks();
 
 if (!work) {
   return Astro.redirect("/404");
@@ -93,12 +95,18 @@ export async function getStaticPaths() {
                   src={item.src}
                   alt={item.alt || `${work.title} - Image ${index + 1}`}
                   class="block max-w-full h-auto"
+                  data-reveal
+                  style={`--reveal-delay: ${index * 60}ms;`}
                 />
               );
             } else {
               return (
-                <div class="w-full min-w-0 max-w-full">
-                  <p class="text-p leading-6 whitespace-pre-line break-words">
+                <div
+                  class="w-full min-w-0 max-w-full"
+                  data-reveal
+                  style={`--reveal-delay: ${index * 60}ms;`}
+                >
+                  <p class="text-p leading-8 whitespace-pre-line break-words">
                     {item.content}
                   </p>
                 </div>
@@ -109,5 +117,46 @@ export async function getStaticPaths() {
       </div>
     </div>
   </section>
+  <script is:inline>
+    (() => {
+      const revealTargets = document.querySelectorAll("[data-reveal]");
+      if (!revealTargets.length) return;
+
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      if (prefersReducedMotion) {
+        revealTargets.forEach((el) => el.classList.add("is-revealed"));
+        return;
+      }
+
+      if (!("IntersectionObserver" in window)) {
+        revealTargets.forEach((el) => el.classList.add("is-revealed"));
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-revealed");
+            observer.unobserve(entry.target);
+          });
+        },
+        {
+          root: null,
+          rootMargin: "0px 0px -10% 0px",
+          threshold: 0.1,
+        },
+      );
+
+      revealTargets.forEach((el) => observer.observe(el));
+    })();
+  </script>
+  <div class="w-[80vw] max-w-[1400px] mx-auto">
+    <hr class="border-0 border-t border-line" />
+  </div>
+  <WorkGrid works={works} />
   <Footer profile={profile} />
 </BaseLayout>

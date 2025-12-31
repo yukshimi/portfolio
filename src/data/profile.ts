@@ -25,6 +25,6 @@ export const profile: Profile = {
       icon: "/img/icon/twitter_x.svg",
     },
   ],
-  contactUrl: "#",
+  contactUrl: "#contact",
   cvUrl: "#",
 };

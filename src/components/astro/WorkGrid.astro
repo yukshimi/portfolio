@@ -3,14 +3,41 @@ import type { Work } from "../../types";
 
 interface Props {
   works: Work[];
+  /** カードサイズ: 大（lg）/小（sm）。未指定ならトップページはlg、それ以外はsm */
+  size?: "lg" | "sm";
 }
 
-const { works } = Astro.props;
+const { works, size } = Astro.props;
+
+const resolvedSize = size ?? (Astro.url.pathname === "/" ? "lg" : "sm");
+
+const sectionBaseClass = "flex flex-col";
+const sectionClass =
+  resolvedSize === "lg"
+    ? `${sectionBaseClass} gap-section-gap py-section-gap`
+    : `${sectionBaseClass} gap-div-gap py-div-gap`;
+
+const gridClass =
+  resolvedSize === "lg"
+    ? "grid gap-thin-gap grid-cols-3 max-[800px]:grid-cols-1"
+    : "grid gap-[calc(var(--thin-gap)/2)] grid-cols-4 max-[1000px]:grid-cols-3 max-[800px]:grid-cols-2";
+
+const overlayBaseClass =
+  "flex flex-col justify-center items-center text-white bg-shade-dark backdrop-blur-[1rem] w-full h-full opacity-0 transition-opacity duration-200 hover:opacity-100 p-4";
+const overlayClass = overlayBaseClass;
+
+const titleBaseClass = "text-center";
+const titleClass =
+  resolvedSize === "sm" ? `${titleBaseClass} text-base` : titleBaseClass;
+
+const categoryBaseClass = "opacity-50";
+const categoryClass =
+  resolvedSize === "sm" ? `${categoryBaseClass} text-sm` : categoryBaseClass;
 ---
 
-<section id="work" class="flex flex-col gap-section-gap py-section-gap">
+<section id="work" class={sectionClass}>
   <div class="flex flex-col gap-div-gap w-[80vw] max-w-[1400px] mx-auto">
-    <div class="grid gap-thin-gap grid-cols-3 max-[800px]:grid-cols-1">
+    <div class={gridClass}>
       {
         works.map((work) => (
           <a href={`/work/${work.slug}/`}>
@@ -18,9 +45,9 @@ const { works } = Astro.props;
               class="aspect-square bg-center bg-cover"
               style={`background-image: url('${work.thumbnail}');`}
             >
-              <span class="flex flex-col justify-center items-center text-white bg-shade-dark backdrop-blur-[1rem] w-full h-full opacity-0 transition-opacity duration-200 hover:opacity-100">
-                <h3 class="text-center" set:html={work.thumbnailTitle} />
-                <p class="opacity-50">{work.category}</p>
+              <span class={overlayClass}>
+                <h3 class={titleClass} set:html={work.thumbnailTitle} />
+                <p class={categoryClass}>{work.category}</p>
               </span>
             </div>
           </a>

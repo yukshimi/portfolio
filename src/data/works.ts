@@ -20,13 +20,17 @@ export const works: Work[] = [
     content: [
       {
         type: "image",
-        src: "/work/example/img/example_01.webp",
+        src: "/work/salesmarker-web/01.avif",
         alt: "Sales Marker - Main view",
       },
-      { type: "text", content: "  " },
+      {
+        type: "text",
+        content:
+          "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます",
+      },
       {
         type: "image",
-        src: "/work/example/img/example_02.webp",
+        src: "/work/salesmarker-web/02.avif",
         alt: "Sales Marker - Feature 1",
       },
       {
@@ -36,10 +40,53 @@ export const works: Work[] = [
       },
       {
         type: "image",
-        src: "/work/example/img/example_03.webp",
-        alt: "Sales Marker - Feature 2",
+        src: "/work/salesmarker-web/02.avif",
+        alt: "Sales Marker - Feature 1",
+      },
+      {
+        type: "text",
+        content:
+          "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます",
+      },
+      {
+        type: "image",
+        src: "/work/salesmarker-web/02.avif",
+        alt: "Sales Marker - Feature 1",
+      },
+      {
+        type: "text",
+        content:
+          "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます",
       },
     ] as WorkContent[],
+  },
+  {
+    slug: "standby",
+    category: "Web Design / Development",
+    year: 2024,
+    company: "スタンバイ株式会社",
+    title: "求人サイト「Standby」の制作・改善",
+    thumbnailTitle: "求人サイトStandby<br>制作・改善",
+    projectTitle: "求人サイトStandbyの制作・改善",
+    description:
+      "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます",
+    thumbnail: "/work/stanby/thumbnail.avif",
+    tags: ["Web Design", "Web Development", "WordPress"],
+    content: [] as WorkContent[],
+  },
+  {
+    slug: "Lunch Match",
+    category: "App Design",
+    year: 2024,
+    company: "副業",
+    title: "マッチングアプリ「Lunch Match」のデザイン",
+    thumbnailTitle: "マッチングアプリ<br>Lunch Match<br>デザイン",
+    projectTitle: "マッチングアプリLunch Matchのデザイン",
+    description:
+      "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます",
+    thumbnail: "/work/lunchmatch/thumbnail.avif",
+    tags: ["Web Design", "Web Development", "WordPress"],
+    content: [] as WorkContent[],
   },
 ];
 

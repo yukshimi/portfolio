@@ -18,6 +18,7 @@ export default function MobileMenu({ children }: MobileMenuProps) {
 
   return (
     <>
+      <nav className={`group ${isOpen ? "active" : ""}`}>{children}</nav>
       <button
         className="hidden max-[800px]:flex max-[800px]:bg-transparent max-[800px]:p-0 max-[800px]:border-none max-[800px]:cursor-pointer"
         onClick={toggleMenu}
@@ -32,7 +33,6 @@ export default function MobileMenu({ children }: MobileMenuProps) {
           }`}
         ></span>
       </button>
-      <nav className={`group ${isOpen ? "active" : ""}`}>{children}</nav>
     </>
   );
 }

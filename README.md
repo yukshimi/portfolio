@@ -1,6 +1,4 @@
-# Portfolio - Astro + React + TypeScript
-
-モダンな技術スタックで構築されたミニマルなポートフォリオサイトです。
+# Portfolio - Yuki Shimizu
 
 ## 🚀 技術スタック
 
@@ -59,6 +57,21 @@ npm run preview
 
 ## 📝 使い方
 
+### お問い合わせフォーム（Cloudflare Pages）
+
+フッターに `Contact` フォーム（`/api/contact` にPOST）があり、Cloudflare Pages Functions 経由でメール送信します。
+
+Cloudflare Pages の環境変数に以下を設定してください：
+
+- **`RESEND_API_KEY`**: Resend の API Key（必須）
+- **`CONTACT_TO`**: 受信先メール（未設定なら `yukish1013@gmail.com`）
+- **`CONTACT_FROM`**: 送信元（Resend 側で利用可能な From。未設定なら `Portfolio <onboarding@resend.dev>`）
+
+Turnstile を使う場合（任意）：
+
+- **`TURNSTILE_SECRET_KEY`**: Turnstile secret key（設定すると検証が有効になります）
+- **`PUBLIC_TURNSTILE_SITE_KEY`**: Turnstile site key（Astro側でフォームにウィジェットを表示するために使用）
+
 ### ワークの追加
 
 `src/data/works.ts` に新しいワークオブジェクトを追加してください：
@@ -81,20 +94,7 @@ npm run preview
 
 ### スタイルのカスタマイズ
 
-`src/styles/global.css` を編集してください。CSS変数を使用しているため、簡単にカスタマイズできます。
-
-## 📚 ドキュメント
-
-- [提案書](./PROPOSAL.md): プロジェクト構成の詳細な提案
-- [移行ガイド](./MIGRATION_GUIDE.md): 既存サイトからの移行手順
-
-## 🎨 特徴
-
-- **パフォーマンス**: Astroの静的生成により、超高速なサイト
-- **型安全性**: TypeScriptでデータの整合性を保証
-- **コンポーネント化**: 再利用可能なコンポーネント設計
-- **レスポンシブ**: モバイルファーストなデザイン
-- **SEO最適化**: 静的生成により、SEOに最適
+`src/styles/global.css` を編集してください。
 
 ## 📄 ライセンス
 
