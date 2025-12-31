@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/astro/Header.astro";
+import About from "../../components/astro/About.astro";
 import Footer from "../../components/astro/Footer.astro";
 import WorkGrid from "../../components/astro/WorkGrid.astro";
 import Button from "../../components/astro/Button.astro";
@@ -30,133 +31,132 @@ export async function getStaticPaths() {
 
 <BaseLayout title={`${work.title} | Yuki Shimizu`}>
   <Header />
-  <section class="flex flex-col gap-section-gap py-section-gap">
-    <div
-      id="hero"
-      class="flex flex-col gap-div-gap w-[90vw] sm:w-[80vw] max-w-[1400px] mx-auto"
-    >
-      <div
-        class="flex flex-row items-center gap-item-gap max-[800px]:flex-col max-[800px]:items-start"
+  <main id="main" class="flex flex-col gap-section-gap">
+    <article class="flex flex-col gap-section-gap py-section-gap">
+      <header
+        class="flex flex-col gap-div-gap w-[90vw] sm:w-[80vw] max-w-[1400px] mx-auto"
       >
-        <div class="flex flex-col items-start gap-item-gap">
-          <h2>{work.projectTitle}</h2>
-          <span
-            class="flex flex-row items-center gap-thin-gap max-[800px]:items-center max-[800px]:flex-wrap"
-          >
-            <p>
-              <b>{work.company}</b>
-            </p>
-            <span
-              id="info"
-              class="flex flex-row items-center gap-[calc(var(--thin-gap)/2)]"
+        <div
+          class="flex flex-row items-center gap-item-gap max-[800px]:flex-col max-[800px]:items-start"
+        >
+          <div class="flex flex-col items-start gap-item-gap">
+            <h1>{work.projectTitle}</h1>
+            <div
+              class="flex flex-row items-center gap-thin-gap max-[800px]:items-center max-[800px]:flex-wrap"
             >
-              <img src="/img/icon/calendar.svg" alt="Year" class="block" />
-              <p>{work.year}</p>
-            </span>
-            {
-              work.tags && work.tags.length > 0 && (
-                <span
-                  id="info"
-                  class="flex flex-row items-center gap-[calc(var(--thin-gap)/2)]"
-                >
-                  <img src="/img/icon/tag.svg" alt="Tag" class="block" />
-                  <p>{work.tags.join(", ")}</p>
-                </span>
-              )
-            }
-            {
-              work.link && (
-                <Button href={work.link} variant="secondary">
-                  Link button
-                </Button>
-              )
-            }
-          </span>
-          <p class="opacity-50 leading-8">
-            {work.detailDescription || work.description}
-          </p>
+              <p>
+                <b>{work.company}</b>
+              </p>
+              <div
+                class="flex flex-row items-center gap-[calc(var(--thin-gap)/2)]"
+              >
+                <img src="/img/icon/calendar.svg" alt="Year" class="block" />
+                <p>{work.year}</p>
+              </div>
+              {
+                work.tags && work.tags.length > 0 && (
+                  <div class="flex flex-row items-center gap-[calc(var(--thin-gap)/2)]">
+                    <img src="/img/icon/tag.svg" alt="Tag" class="block" />
+                    <p>{work.tags.join(", ")}</p>
+                  </div>
+                )
+              }
+              {
+                work.link && (
+                  <Button href={work.link} variant="secondary">
+                    Link button
+                  </Button>
+                )
+              }
+            </div>
+            <p class="opacity-50 leading-8">
+              {work.detailDescription || work.description}
+            </p>
+          </div>
+          <div class="w-[80%] h-full flex-1 max-[800px]:hidden"></div>
         </div>
-        <div class="w-[80%] h-full flex-1 max-[800px]:hidden"></div>
-      </div>
-    </div>
+      </header>
 
-    <div
-      id="work"
-      class="flex flex-col gap-div-gap w-[90vw] sm:w-[80vw] max-w-[1400px] mx-auto"
-    >
-      <div
-        class="flex flex-col items-start gap-item-gap max-[800px]:flex-col min-w-0"
+      <section
+        aria-label="Work detail"
+        class="flex flex-col gap-div-gap w-[90vw] sm:w-[80vw] max-w-[1400px] mx-auto"
       >
-        {
-          work.content.map((item, index) => {
-            if (item.type === "image") {
-              return (
-                <img
-                  src={item.src}
-                  alt={item.alt || `${work.title} - Image ${index + 1}`}
-                  class="block max-w-full h-auto"
-                  data-reveal
-                  style={`--reveal-delay: ${index * 60}ms;`}
-                />
-              );
-            } else {
-              return (
-                <div
-                  class="w-full min-w-0 max-w-full"
-                  data-reveal
-                  style={`--reveal-delay: ${index * 60}ms;`}
-                >
-                  <p class="text-p leading-8 whitespace-pre-line break-words">
-                    {item.content}
-                  </p>
-                </div>
-              );
-            }
-          })
+        <h2 class="sr-only">Work detail</h2>
+        <div
+          class="flex flex-col items-start gap-item-gap max-[800px]:flex-col min-w-0"
+        >
+          {
+            work.content.map((item, index) => {
+              if (item.type === "image") {
+                return (
+                  <img
+                    src={item.src}
+                    alt={item.alt || `${work.title} - Image ${index + 1}`}
+                    class="block max-w-full h-auto"
+                    data-reveal
+                    style={`--reveal-delay: ${index * 60}ms;`}
+                  />
+                );
+              } else {
+                return (
+                  <div
+                    class="w-full min-w-0 max-w-full"
+                    data-reveal
+                    style={`--reveal-delay: ${index * 60}ms;`}
+                  >
+                    <p class="text-p leading-8 whitespace-pre-line break-words">
+                      {item.content}
+                    </p>
+                  </div>
+                );
+              }
+            })
+          }
+        </div>
+      </section>
+    </article>
+    <script is:inline>
+      (() => {
+        const revealTargets = document.querySelectorAll("[data-reveal]");
+        if (!revealTargets.length) return;
+
+        const prefersReducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        if (prefersReducedMotion) {
+          revealTargets.forEach((el) => el.classList.add("is-revealed"));
+          return;
         }
-      </div>
+
+        if (!("IntersectionObserver" in window)) {
+          revealTargets.forEach((el) => el.classList.add("is-revealed"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-revealed");
+              observer.unobserve(entry.target);
+            });
+          },
+          {
+            root: null,
+            rootMargin: "0px 0px -10% 0px",
+            threshold: 0.1,
+          },
+        );
+
+        revealTargets.forEach((el) => observer.observe(el));
+      })();
+    </script>
+    <div class="w-[90vw] sm:w-[80vw] max-w-[1400px] mx-auto">
+      <hr class="border-0 border-t border-line" />
     </div>
-  </section>
-  <script is:inline>
-    (() => {
-      const revealTargets = document.querySelectorAll("[data-reveal]");
-      if (!revealTargets.length) return;
-
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-
-      if (prefersReducedMotion) {
-        revealTargets.forEach((el) => el.classList.add("is-revealed"));
-        return;
-      }
-
-      if (!("IntersectionObserver" in window)) {
-        revealTargets.forEach((el) => el.classList.add("is-revealed"));
-        return;
-      }
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add("is-revealed");
-            observer.unobserve(entry.target);
-          });
-        },
-        {
-          root: null,
-          rootMargin: "0px 0px -10% 0px",
-          threshold: 0.1,
-        },
-      );
-
-      revealTargets.forEach((el) => observer.observe(el));
-    })();
-  </script>
-  <div class="w-[90vw] sm:w-[80vw] max-w-[1400px] mx-auto">
-    <hr class="border-0 border-t border-line" />
-  </div>
-  <WorkGrid works={works} />
+    <WorkGrid works={works} />
+    <About profile={profile} />
+  </main>
   <Footer profile={profile} />
 </BaseLayout>

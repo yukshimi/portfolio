@@ -38,10 +38,12 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
   const titleId = useMemo(() => "contact-modal-title", []);
 
   const close = () => {
+    const shouldGoHome = status === "sent";
     setIsOpen(false);
     setStatus("idle");
     setErrorMessage("");
     window.turnstile?.reset?.();
+    if (shouldGoHome) window.location.assign("/");
   };
 
   useEffect(() => {
@@ -170,7 +172,7 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
               <button
                 type="button"
                 onClick={close}
-                className="w-10 h-10 grid place-items-center rounded-[999px] bg-line hover:scale-105 transition-all duration-200"
+                className="w-10 h-10 grid place-items-center bg-transparent hover:opacity-60 transition-opacity duration-200"
                 aria-label="Close"
               >
                 <span aria-hidden="true" className="text-[1.4rem] leading-none">
@@ -261,7 +263,7 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
                       type="submit"
                       disabled={status === "sending"}
                       className={[
-                        "text-small font-semibold px-[calc(var(--thin-gap)/1.5)] py-[calc(var(--thin-gap)/2.5)] rounded-[8rem] text-white bg-dark hover:scale-105 transition-all duration-200",
+                        "text-small font-semibold w-full max-w-[420px] px-[calc(var(--thin-gap)/1.5)] py-[calc(var(--thin-gap)/2.5)] rounded-[8rem] text-white bg-dark hover:scale-105 transition-all duration-200",
                         status === "sending"
                           ? "opacity-50 pointer-events-none"
                           : "",

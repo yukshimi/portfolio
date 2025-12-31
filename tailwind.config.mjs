@@ -12,7 +12,12 @@ export default {
         line: "rgba(128, 128, 128, 0.2)",
       },
       fontFamily: {
-        sans: ["Rethink Sans", "sans-serif"],
+        sans: [
+          "Rethink Sans Adjusted",
+          "Rethink Sans",
+          "Noto Sans JP",
+          "sans-serif",
+        ],
       },
       fontSize: {
         h1: "3.5rem",

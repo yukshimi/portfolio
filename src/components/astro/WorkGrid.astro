@@ -39,6 +39,7 @@ const categoryClass =
   <div
     class="flex flex-col gap-div-gap w-[90vw] sm:w-[80vw] max-w-[1400px] mx-auto"
   >
+    <h2 class="sr-only">Work</h2>
     <div class={gridClass}>
       {
         works.map((work) => (
@@ -47,10 +48,10 @@ const categoryClass =
               class="aspect-square bg-center bg-cover"
               style={`background-image: url('${work.thumbnail}');`}
             >
-              <span class={overlayClass}>
+              <div class={overlayClass}>
                 <h3 class={titleClass} set:html={work.thumbnailTitle} />
                 <p class={categoryClass}>{work.category}</p>
-              </span>
+              </div>
             </div>
           </a>
         ))

@@ -1,6 +1,5 @@
 ---
 import type { Profile } from "../../types";
-import About from "./About.astro";
 
 interface Props {
   profile: Profile;
@@ -10,7 +9,6 @@ const { profile: profileData } = Astro.props;
 ---
 
 <footer class="gap-0 p-0 bg-line">
-  <About profile={profileData} />
   <div
     class="flex flex-col gap-div-gap w-[90vw] sm:w-[80vw] max-w-[1400px] mx-auto py-item-gap"
   >

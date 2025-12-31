@@ -10,21 +10,15 @@ const { title, description } = Astro.props;
 ---
 
 <section class="flex flex-col gap-section-gap py-section-gap">
-  <div
-    class="flex flex-col gap-div-gap w-[90vw] sm:w-[80vw] max-w-[1400px] mx-auto"
-  >
+  <div class="mx-auto w-[90vw] max-w-[1400px] sm:w-[80vw]">
     <div
-      class="flex flex-row items-center gap-item-gap max-[800px]:flex-col max-[800px]:items-start [&>*]:flex-none"
+      class="flex items-center gap-item-gap max-[800px]:flex-col max-[800px]:items-start"
     >
-      <div class="flex flex-col items-start gap-item-gap">
-        <span
-          class="flex flex-col items-start gap-thin-gap max-[800px]:flex-col"
-        >
-          <h1>{title}</h1>
-          <p class="opacity-50">{description}</p>
-        </span>
+      <div class="flex flex-col items-start gap-thin-gap">
+        <h1>{title}</h1>
+        <p class="opacity-50">{description}</p>
       </div>
-      <div class="w-[80%] h-full max-[800px]:hidden"></div>
+      <div class="flex-1 max-[800px]:hidden"></div>
     </div>
   </div>
 </section>

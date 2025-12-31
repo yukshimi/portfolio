@@ -22,16 +22,16 @@ const { profile: profileData } = Astro.props;
     >
     </div>
     <div class="flex flex-col items-start gap-item-gap flex-1">
-      <span class="flex flex-col items-start gap-thin-gap max-[800px]:flex-col">
-        <span>
+      <div class="flex flex-col items-start gap-thin-gap max-[800px]:flex-col">
+        <div>
           <h2>About me</h2>
           <p>
             <b>{profileData.name}</b>, {profileData.role}
           </p>
-        </span>
-        <p class="opacity-50">{profileData.bio}</p>
-      </span>
-      <span
+        </div>
+        <p class="opacity-50 leading-7">{profileData.bio}</p>
+      </div>
+      <div
         class="flex flex-row items-center gap-thin-gap max-[800px]:items-center max-[800px]:flex-wrap"
       >
         <Button
@@ -41,7 +41,7 @@ const { profile: profileData } = Astro.props;
         >
           Get in touch
         </Button>
-      </span>
+      </div>
     </div>
   </div>
 </section>

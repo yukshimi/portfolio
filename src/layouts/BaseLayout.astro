@@ -1,4 +1,5 @@
 ---
+import "../styles/fonts.css";
 import "../styles/global.css";
 import ContactModal from "../components/react/ContactModal";
 
@@ -23,13 +24,19 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&display=swap"
       rel="stylesheet"
     />
     <title>{title}</title>
   </head>
   <body>
     <ContactModal client:load turnstileSiteKey={turnstileSiteKey} />
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded"
+    >
+      Skip to content
+    </a>
     <slot />
   </body>
 </html>

@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/astro/Header.astro";
 import Hero from "../components/astro/Hero.astro";
 import WorkGrid from "../components/astro/WorkGrid.astro";
+import About from "../components/astro/About.astro";
 import Footer from "../components/astro/Footer.astro";
 import { getAllWorks } from "../data/works";
 import { profile } from "../data/profile";
@@ -14,7 +15,10 @@ const heroDescription = "ここにもう少し具体的な説明を書くつも�
 
 <BaseLayout title="Yuki Shimizu — Portfolio">
   <Header />
-  <Hero title={heroTitle} description={heroDescription} />
-  <WorkGrid works={works} />
+  <main id="main">
+    <Hero title={heroTitle} description={heroDescription} />
+    <WorkGrid works={works} />
+    <About profile={profile} />
+  </main>
   <Footer profile={profile} />
 </BaseLayout>
