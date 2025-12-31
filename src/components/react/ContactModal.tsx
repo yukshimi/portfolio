@@ -170,17 +170,31 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
               <button
                 type="button"
                 onClick={close}
-                className="text-small font-semibold px-4 py-2 rounded-[8rem] bg-line hover:scale-105 transition-all duration-200"
+                className="w-10 h-10 grid place-items-center rounded-[999px] bg-line hover:scale-105 transition-all duration-200"
+                aria-label="Close"
               >
-                Close
+                <span aria-hidden="true" className="text-[1.4rem] leading-none">
+                  ×
+                </span>
               </button>
             </div>
 
             <div className="p-6 flex flex-col gap-thin-gap">
               {status === "sent" && (
-                <p className="opacity-50 leading-8">
-                  送信しました。ありがとうございます。
-                </p>
+                <div className="flex flex-col gap-thin-gap">
+                  <p className="opacity-50 leading-8">
+                    送信しました。ありがとうございます。
+                  </p>
+                  <div className="flex justify-center">
+                    <button
+                      type="button"
+                      onClick={close}
+                      className="text-small font-semibold px-[calc(var(--thin-gap)/1.5)] py-[calc(var(--thin-gap)/2.5)] rounded-[8rem] bg-line hover:scale-105 transition-all duration-200"
+                    >
+                      閉じる
+                    </button>
+                  </div>
+                </div>
               )}
               {status === "error" && (
                 <p className="opacity-50 leading-8">
@@ -188,74 +202,76 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
                 </p>
               )}
 
-              <form
-                method="POST"
-                action="/api/contact"
-                onSubmit={onSubmit}
-                className="flex flex-col gap-thin-gap"
-              >
-                <label className="flex flex-col gap-[calc(var(--thin-gap)/4)]">
-                  <small className="opacity-50">お名前</small>
+              {status !== "sent" && (
+                <form
+                  method="POST"
+                  action="/api/contact"
+                  onSubmit={onSubmit}
+                  className="flex flex-col gap-thin-gap"
+                >
+                  <label className="flex flex-col gap-[calc(var(--thin-gap)/4)]">
+                    <small className="opacity-50">お名前</small>
+                    <input
+                      ref={firstInputRef}
+                      type="text"
+                      name="name"
+                      required
+                      className="w-full rounded-[1rem] border border-line bg-white px-4 py-3"
+                    />
+                  </label>
+
+                  <label className="flex flex-col gap-[calc(var(--thin-gap)/4)]">
+                    <small className="opacity-50">メールアドレス</small>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      className="w-full rounded-[1rem] border border-line bg-white px-4 py-3"
+                    />
+                  </label>
+
+                  <label className="flex flex-col gap-[calc(var(--thin-gap)/4)]">
+                    <small className="opacity-50">メッセージ</small>
+                    <textarea
+                      name="message"
+                      required
+                      rows={6}
+                      className="w-full rounded-[1rem] border border-line bg-white px-4 py-3"
+                    ></textarea>
+                  </label>
+
+                  {/* Honeypot (bots only) */}
                   <input
-                    ref={firstInputRef}
                     type="text"
-                    name="name"
-                    required
-                    className="w-full rounded-[1rem] border border-line bg-white px-4 py-3"
+                    name="company"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    className="hidden"
                   />
-                </label>
 
-                <label className="flex flex-col gap-[calc(var(--thin-gap)/4)]">
-                  <small className="opacity-50">メールアドレス</small>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    className="w-full rounded-[1rem] border border-line bg-white px-4 py-3"
-                  />
-                </label>
+                  {showTurnstile && (
+                    <div
+                      className="cf-turnstile"
+                      data-sitekey={turnstileSiteKey}
+                    />
+                  )}
 
-                <label className="flex flex-col gap-[calc(var(--thin-gap)/4)]">
-                  <small className="opacity-50">メッセージ</small>
-                  <textarea
-                    name="message"
-                    required
-                    rows={6}
-                    className="w-full rounded-[1rem] border border-line bg-white px-4 py-3"
-                  ></textarea>
-                </label>
-
-                {/* Honeypot (bots only) */}
-                <input
-                  type="text"
-                  name="company"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  className="hidden"
-                />
-
-                {showTurnstile && (
-                  <div
-                    className="cf-turnstile"
-                    data-sitekey={turnstileSiteKey}
-                  />
-                )}
-
-                <div className="flex flex-row items-center gap-[calc(var(--thin-gap)/2)]">
-                  <button
-                    type="submit"
-                    disabled={status === "sending"}
-                    className={[
-                      "text-small font-semibold px-[calc(var(--thin-gap)/1.5)] py-[calc(var(--thin-gap)/2.5)] rounded-[8rem] text-white bg-dark hover:scale-105 transition-all duration-200",
-                      status === "sending"
-                        ? "opacity-50 pointer-events-none"
-                        : "",
-                    ].join(" ")}
-                  >
-                    {status === "sending" ? "送信中…" : "送信"}
-                  </button>
-                </div>
-              </form>
+                  <div className="flex justify-center">
+                    <button
+                      type="submit"
+                      disabled={status === "sending"}
+                      className={[
+                        "text-small font-semibold px-[calc(var(--thin-gap)/1.5)] py-[calc(var(--thin-gap)/2.5)] rounded-[8rem] text-white bg-dark hover:scale-105 transition-all duration-200",
+                        status === "sending"
+                          ? "opacity-50 pointer-events-none"
+                          : "",
+                      ].join(" ")}
+                    >
+                      {status === "sending" ? "送信中…" : "送信"}
+                    </button>
+                  </div>
+                </form>
+              )}
             </div>
           </div>
         </div>
