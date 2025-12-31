@@ -19,12 +19,16 @@ pnpm-debug.log*
 .DS_Store
 
 # IDE
-.vscode/
 .idea/
 .cursor/
 *.swp
 *.swo
 *~
+
+# Allow sharing only recommended VSCode workspace settings
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
 
 # Astro
 .astro/
