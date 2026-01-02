@@ -8,7 +8,7 @@ import Footer from "../components/astro/Footer.astro";
 import { getAllWorks } from "../data/works";
 import { profile } from "../data/profile";
 
-const works = getAllWorks();
+const works = await getAllWorks();
 const heroTitle = "いろいろやるデザイナー 清水です";
 const heroDescription = "ここにもう少し具体的な説明を書くつもりです";
 ---

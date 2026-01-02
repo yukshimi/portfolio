@@ -1,116 +1,34 @@
-import type { Work, WorkContent } from "../types";
-
-/**
- * ワークデータの配列
- * ここに作品情報を追加していきます
- */
-export const works: Work[] = [
-  {
-    slug: "salesmarker-web",
-    category: "Web Design / Development",
-    year: 2024,
-    company: "株式会社Sales Marker",
-    title: "Sales MarkerのWEBサイト運用・改善",
-    thumbnailTitle: "Sales Marker<br>WEBサイト運用・改善",
-    projectTitle: "Sales MarkerのWEBサイト運用・改善",
-    description:
-      "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます",
-    thumbnail: "/work/salesmarker-web/thumbnail.avif",
-    tags: ["Web Design", "Web Development", "WordPress"],
-    content: [
-      // 箇条書きを入れたい場合は、こんな形で追加できます：
-      // { type: "list", style: "unordered", items: ["項目1", "項目2"] }
-      {
-        type: "image",
-        src: "/work/salesmarker-web/01.avif",
-        alt: "Sales Marker - Main view",
-      },
-      {
-        type: "text",
-        content:
-          "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます",
-      },
-      {
-        type: "list",
-        style: "unordered",
-        items: [
-          "項目1項目1項目1項目1項目1項目1項目1項目1項目1項目1項目1項目1項目1項目1項目1",
-          "項目2",
-          "項目3",
-        ],
-      },
-      {
-        type: "image",
-        src: "/work/salesmarker-web/02.avif",
-        alt: "Sales Marker - Feature 1",
-      },
-      {
-        type: "text",
-        content:
-          "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます",
-      },
-      {
-        type: "image",
-        src: "/work/salesmarker-web/02.avif",
-        alt: "Sales Marker - Feature 1",
-      },
-      {
-        type: "text",
-        content:
-          "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます",
-      },
-      {
-        type: "image",
-        src: "/work/salesmarker-web/02.avif",
-        alt: "Sales Marker - Feature 1",
-      },
-      {
-        type: "text",
-        content:
-          "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます",
-      },
-    ] as WorkContent[],
-  },
-  {
-    slug: "standby",
-    category: "Web Design / Development",
-    year: 2024,
-    company: "スタンバイ株式会社",
-    title: "求人サイト「Standby」の制作・改善",
-    thumbnailTitle: "求人サイトStandby<br>制作・改善",
-    projectTitle: "求人サイトStandbyの制作・改善",
-    description:
-      "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます",
-    thumbnail: "/work/stanby/thumbnail.avif",
-    tags: ["Web Design", "Web Development", "WordPress"],
-    content: [] as WorkContent[],
-  },
-  {
-    slug: "Lunch Match",
-    category: "App Design",
-    year: 2024,
-    company: "副業",
-    title: "マッチングアプリ「Lunch Match」のデザイン",
-    thumbnailTitle: "マッチングアプリ<br>Lunch Match<br>デザイン",
-    projectTitle: "マッチングアプリLunch Matchのデザイン",
-    description:
-      "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます",
-    thumbnail: "/work/lunchmatch/thumbnail.avif",
-    tags: ["Web Design", "Web Development", "WordPress"],
-    content: [] as WorkContent[],
-  },
-];
+import { getCollection } from "astro:content";
+import type { Work } from "../types";
 
 /**
  * スラッグからワークを取得する関数
  */
-export function getWorkBySlug(slug: string): Work | undefined {
+export async function getWorkBySlug(slug: string): Promise<Work | undefined> {
+  const works = await getAllWorks();
   return works.find((work) => work.slug === slug);
 }
 
 /**
  * すべてのワークを取得する関数
  */
-export function getAllWorks(): Work[] {
-  return works;
+export async function getAllWorks(): Promise<Work[]> {
+  const entries = await getCollection("works");
+
+  return entries.map((entry) => ({
+    slug: entry.slug,
+    category: entry.data.category,
+    year: entry.data.year,
+    company: entry.data.company,
+    title: entry.data.title,
+    thumbnailTitle: entry.data.thumbnailTitle,
+    projectTitle: entry.data.projectTitle,
+    description: entry.data.description,
+    detailTitle: entry.data.detailTitle,
+    detailDescription: entry.data.detailDescription,
+    thumbnail: entry.data.thumbnail,
+    tags: entry.data.tags,
+    link: entry.data.link,
+    content: entry.data.content,
+  }));
 }

@@ -5,7 +5,8 @@ import About from "../../components/astro/About.astro";
 import Footer from "../../components/astro/Footer.astro";
 import WorkGrid from "../../components/astro/WorkGrid.astro";
 import Button from "../../components/astro/Button.astro";
-import { getWorkBySlug, getAllWorks } from "../../data/works";
+import { getEntryBySlug } from "astro:content";
+import { getAllWorks } from "../../data/works";
 import { profile } from "../../data/profile";
 
 interface Props {
@@ -13,16 +14,21 @@ interface Props {
 }
 
 const { slug } = Astro.params;
-const work = getWorkBySlug(slug || "");
-const works = getAllWorks();
+const entry = await getEntryBySlug("works", slug || "");
+const works = await getAllWorks();
 
-if (!work) {
+if (!entry) {
   return Astro.redirect("/404");
 }
 
+const work = { ...entry.data, slug: entry.slug };
+const projectTitle = work.projectTitle ?? work.title;
+const markdownBody = entry.body?.trim();
+const { Content } = await entry.render();
+
 // 静的生成のための全スラッグを取得
 export async function getStaticPaths() {
-  const works = getAllWorks();
+  const works = await getAllWorks();
   return works.map((work) => ({
     params: { slug: work.slug },
   }));
@@ -40,7 +46,7 @@ export async function getStaticPaths() {
           class="flex flex-row items-center gap-item-gap max-[800px]:flex-col max-[800px]:items-start"
         >
           <div class="flex flex-col items-start gap-item-gap">
-            <h1>{work.projectTitle}</h1>
+            <h1>{projectTitle}</h1>
             <div
               class="flex flex-row items-center gap-thin-gap max-[800px]:items-center max-[800px]:flex-wrap"
             >
@@ -111,11 +117,19 @@ export async function getStaticPaths() {
                     data-reveal
                     style={`--reveal-delay: ${index * 60}ms;`}
                   >
-                    <ul class={`text-p leading-8 break-words ${listClass}`}>
-                      {item.items.map((text) => (
-                        <li>{text}</li>
-                      ))}
-                    </ul>
+                    {item.style === "ordered" ? (
+                      <ol class={`text-p leading-8 break-words ${listClass}`}>
+                        {item.items.map((text) => (
+                          <li>{text}</li>
+                        ))}
+                      </ol>
+                    ) : (
+                      <ul class={`text-p leading-8 break-words ${listClass}`}>
+                        {item.items.map((text) => (
+                          <li>{text}</li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 );
               }
@@ -134,10 +148,38 @@ export async function getStaticPaths() {
             })
           }
         </div>
+        {
+          markdownBody && (
+            <div
+              class="work-markdown w-full min-w-0 max-w-full"
+              data-markdown-reveal-start={work.content.length}
+            >
+              <Content />
+            </div>
+          )
+        }
       </section>
     </article>
     <script is:inline>
       (() => {
+        // Markdown本文（<Content />）の直下要素に data-reveal を付与して
+        // 既存のリビールアニメーションと同じ挙動（60ms刻み）に揃える
+        const markdownBlocks = document.querySelectorAll(
+          ".work-markdown[data-markdown-reveal-start]",
+        );
+
+        markdownBlocks.forEach((container) => {
+          const start = Number(
+            container.getAttribute("data-markdown-reveal-start") ?? "0",
+          );
+          const children = container.querySelectorAll(":scope > *");
+
+          children.forEach((el, i) => {
+            el.setAttribute("data-reveal", "true");
+            el.style.setProperty("--reveal-delay", `${(start + i) * 60}ms`);
+          });
+        });
+
         const revealTargets = document.querySelectorAll("[data-reveal]");
         if (!revealTargets.length) return;
 

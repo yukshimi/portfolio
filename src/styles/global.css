@@ -112,3 +112,37 @@
     }
   }
 }
+
+@layer components {
+  /**
+   * 作品詳細のMarkdown本文用のスタイル
+   */
+  .work-markdown > * + * {
+    margin-top: var(--item-gap);
+  }
+
+  .work-markdown p {
+    @apply text-p leading-8 whitespace-pre-line break-words;
+  }
+
+  .work-markdown ul,
+  .work-markdown ol {
+    @apply text-p leading-8 break-words pl-6;
+  }
+
+  .work-markdown ul {
+    @apply list-disc;
+  }
+
+  .work-markdown ol {
+    @apply list-decimal;
+  }
+
+  .work-markdown li {
+    @apply break-words;
+  }
+
+  .work-markdown img {
+    @apply block max-w-full h-auto;
+  }
+}
