@@ -1,17 +1,4 @@
 /**
- * ワークコンテンツの型定義（画像・テキスト・リスト）
- */
-export type WorkContent =
-  | { type: "image"; src: string; alt?: string }
-  | { type: "text"; content: string }
-  | {
-      type: "list";
-      /** 未指定なら unordered */
-      style?: "unordered" | "ordered";
-      items: string[];
-    };
-
-/**
  * ワーク（作品）の型定義
  */
 export interface Work {
@@ -37,8 +24,6 @@ export interface Work {
   projectTitle?: string;
   /** サムネイル画像のパス */
   thumbnail: string;
-  /** 詳細ページのコンテンツ（画像とテキストの混合） */
-  content: WorkContent[];
   /** タグ（オプション） */
   tags?: string[];
   /** 外部URL（オプション） */

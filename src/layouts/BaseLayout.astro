@@ -46,14 +46,9 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         const initReveal = () => {
           // Markdown本文（<Content />）の直下要素に data-reveal を付与して
           // 既存のリビールアニメーションと同じ挙動（60ms刻み）に揃える
-          const markdownBlocks = document.querySelectorAll(
-            ".work-markdown[data-markdown-reveal-start]",
-          );
+          const markdownBlocks = document.querySelectorAll(".work-markdown");
 
           markdownBlocks.forEach((container) => {
-            const start = Number(
-              container.getAttribute("data-markdown-reveal-start") ?? "0",
-            );
             const children = container.querySelectorAll(":scope > *");
 
             children.forEach((el, i) => {

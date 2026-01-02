@@ -6,23 +6,6 @@ import { defineCollection, z } from "astro:content";
  * - frontmatter（--- の中）を schema で検証できるので、入力ミスに強い
  */
 
-const workContentSchema = z.discriminatedUnion("type", [
-  z.object({
-    type: z.literal("image"),
-    src: z.string(),
-    alt: z.string().optional(),
-  }),
-  z.object({
-    type: z.literal("text"),
-    content: z.string(),
-  }),
-  z.object({
-    type: z.literal("list"),
-    style: z.enum(["unordered", "ordered"]).optional(),
-    items: z.array(z.string()).min(1),
-  }),
-]);
-
 const worksCollection = defineCollection({
   type: "content",
   schema: z.object({
@@ -38,9 +21,6 @@ const worksCollection = defineCollection({
     thumbnail: z.string(),
     tags: z.array(z.string()).optional(),
     url: z.string().optional(),
-
-    /** 作品詳細の“ブロック配列”は frontmatter 側で管理（Markdown本文は自由に使ってOK） */
-    content: z.array(workContentSchema).default([]),
   }),
 });
 

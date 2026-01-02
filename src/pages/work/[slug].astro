@@ -54,55 +54,48 @@ export async function getStaticPaths() {
       <header
         class="flex flex-col gap-div-gap w-[85vw] sm:w-[80vw] max-w-[1400px] mx-auto"
       >
-        <div
-          class="flex flex-row items-center gap-item-gap max-[800px]:flex-col max-[800px]:items-start"
-        >
-          <div class="flex flex-col items-start gap-item-gap">
-            <div class="flex flex-col items-start gap-2">
-              <h1
-                class="text-4xl sm:text-5xl leading-relaxed sm:leading-relaxed"
-              >
-                {projectTitle}
-              </h1>
-              {
-                workUrl && (
-                  <a
-                    href={workUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    class="text-small opacity-50 break-all hover:opacity-100"
-                  >
-                    {workUrl}
-                  </a>
-                )
-              }
-            </div>
-            <div
-              class="flex flex-row flex-wrap items-center gap-thin-gap max-[800px]:items-center max-[800px]:flex-wrap"
-            >
-              <p>
-                <b>{work.company}</b>
-              </p>
-              <div
-                class="flex flex-row items-center gap-[calc(var(--thin-gap)/2)]"
-              >
-                <img src="/img/icon/calendar.svg" alt="Year" class="block" />
-                <p>{work.year}</p>
-              </div>
-              {
-                work.tags && work.tags.length > 0 && (
-                  <div class="flex flex-row items-center gap-[calc(var(--thin-gap)/2)]">
-                    <img src="/img/icon/tag.svg" alt="Tag" class="block" />
-                    <p>{work.tags.join(", ")}</p>
-                  </div>
-                )
-              }
-            </div>
-            <p class="opacity-50 leading-8">
-              {work.detailDescription || work.description}
-            </p>
+        <div class="flex flex-col items-start gap-item-gap">
+          <div class="flex flex-col items-start gap-2">
+            <h1 class="text-4xl sm:text-5xl leading-relaxed">
+              {projectTitle}
+            </h1>
+            {
+              workUrl && (
+                <a
+                  href={workUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="text-small opacity-50 break-all hover:opacity-100"
+                >
+                  {workUrl}
+                </a>
+              )
+            }
           </div>
-          <div class="w-[80%] h-full flex-1 max-[800px]:hidden"></div>
+
+          <div class="flex flex-row flex-wrap items-center gap-thin-gap">
+            <p>
+              <b>{work.company}</b>
+            </p>
+            <div
+              class="flex flex-row items-center gap-[calc(var(--thin-gap)/2)]"
+            >
+              <img src="/img/icon/calendar.svg" alt="Year" class="block" />
+              <p>{work.year}</p>
+            </div>
+            {
+              work.tags && work.tags.length > 0 && (
+                <div class="flex flex-row items-center gap-[calc(var(--thin-gap)/2)]">
+                  <img src="/img/icon/tag.svg" alt="Tag" class="block" />
+                  <p>{work.tags.join(", ")}</p>
+                </div>
+              )
+            }
+          </div>
+
+          <p class="opacity-50 leading-8">
+            {work.detailDescription || work.description}
+          </p>
         </div>
       </header>
 
@@ -111,72 +104,9 @@ export async function getStaticPaths() {
         class="flex flex-col gap-div-gap w-[85vw] sm:w-[80vw] max-w-[1400px] mx-auto"
       >
         <h2 class="sr-only">Work detail</h2>
-        <div
-          class="flex flex-col items-start gap-item-gap max-[800px]:flex-col min-w-0"
-        >
-          {
-            work.content.map((item, index) => {
-              if (item.type === "image") {
-                return (
-                  <img
-                    src={item.src}
-                    alt={item.alt || `${work.title} - Image ${index + 1}`}
-                    class="block max-w-full h-auto"
-                    data-reveal
-                    style="--reveal-delay: 0ms;"
-                  />
-                );
-              }
-
-              if (item.type === "list") {
-                const listClass =
-                  item.style === "ordered"
-                    ? "list-decimal pl-6"
-                    : "list-disc pl-6";
-
-                return (
-                  <div
-                    class="w-full min-w-0 max-w-full"
-                    data-reveal
-                    style="--reveal-delay: 0ms;"
-                  >
-                    {item.style === "ordered" ? (
-                      <ol class={`text-p leading-8 break-words ${listClass}`}>
-                        {item.items.map((text) => (
-                          <li>{text}</li>
-                        ))}
-                      </ol>
-                    ) : (
-                      <ul class={`text-p leading-8 break-words ${listClass}`}>
-                        {item.items.map((text) => (
-                          <li>{text}</li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                );
-              }
-
-              return (
-                <div
-                  class="w-full min-w-0 max-w-full"
-                  data-reveal
-                  style="--reveal-delay: 0ms;"
-                >
-                  <p class="text-p leading-8 whitespace-pre-line break-words">
-                    {item.content}
-                  </p>
-                </div>
-              );
-            })
-          }
-        </div>
         {
           markdownBody && (
-            <div
-              class="work-markdown w-full min-w-0 max-w-full"
-              data-markdown-reveal-start={work.content.length}
-            >
+            <div class="work-markdown w-full min-w-0 max-w-full">
               <Content />
             </div>
           )

@@ -42,6 +42,5 @@ export async function getAllWorks(): Promise<Work[]> {
     thumbnail: entry.data.thumbnail,
     tags: entry.data.tags,
     url: entry.data.url,
-    content: (entry.data.content ?? []) as Work["content"],
   }));
 }
