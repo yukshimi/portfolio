@@ -55,24 +55,19 @@ export interface Profile {
   role: string;
   /** 自己紹介文 */
   bio: string;
+  /** インタビューURL */
+  interviewUrls: {
+    name: string;
+    url: string;
+  }[];
   /** アバター画像のパス */
   avatar: string;
   /** SNSリンク */
-  socialLinks: SocialLink[];
-  /** CVダウンロードURL（オプション） */
-  cvUrl?: string;
+  socialLinks: {
+    platform: string;
+    url: string;
+    icon: string;
+  }[];
   /** お問い合わせURL（オプション） */
   contactUrl?: string;
-}
-
-/**
- * SNSリンクの型定義
- */
-export interface SocialLink {
-  /** プラットフォーム名 */
-  platform: string;
-  /** URL */
-  url: string;
-  /** アイコン画像のパス */
-  icon: string;
 }

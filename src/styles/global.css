@@ -89,6 +89,16 @@
 }
 
 @layer utilities {
+  /**
+   * Typography utilities
+   * `text-box` is still experimental; apply only when supported.
+   */
+  @supports (text-box: trim-both cap alphabetic) {
+    .text-box-trim-both-cap {
+      text-box: trim-both cap alphabetic;
+    }
+  }
+
   [data-reveal] {
     opacity: 0;
     transform: translateY(var(--reveal-y, 10px));

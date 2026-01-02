@@ -24,12 +24,30 @@ const { profile: profileData } = Astro.props;
     <div class="flex flex-col items-start gap-item-gap flex-1">
       <div class="flex flex-col items-start gap-thin-gap max-[800px]:flex-col">
         <div>
-          <h2>About me</h2>
-          <p class="mt-2">
+          <h2 class="text-box-trim-both-cap">About me</h2>
+          <p class="mt-4">
             <b>{profileData.name}</b>, {profileData.role}
           </p>
         </div>
         <p class="opacity-50 leading-7">{profileData.bio}</p>
+        {
+          profileData.interviewUrls?.length > 0 && (
+            <ul class="flex flex-row items-center gap-thin-gap opacity-50">
+              {profileData.interviewUrls.map((item) => (
+                <li>
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="underline"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )
+        }
       </div>
       <div
         class="flex flex-row items-center gap-thin-gap max-[800px]:items-center max-[800px]:flex-wrap"

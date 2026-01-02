@@ -8,6 +8,16 @@ export const profile: Profile = {
   role: "UI/UX Designer",
   bio: "ここにプロフィールを書きますここにプロフィールを書きますここにプロフィールを書きますここにプロフィールを書きますここにプロフィールを書きますここにプロフィールを書きますここにプロフィールを書きますここにプロフィールを書きますここにプロフィールを書きますここにプロフィールを書きますここにプロフィールを書きますここにプロフィールを書きますここにプロフィールを書きます",
   avatar: "/img/avatar.avif",
+  interviewUrls: [
+    {
+      name: "インタビュー動画",
+      url: "https://www.youtube.com/watch?v=QOkSmzMe1xQ",
+    },
+    {
+      name: "インタビュー記事",
+      url: "https://note.sales-marker.jp/n/nd7d2a1119a08",
+    },
+  ],
   socialLinks: [
     {
       platform: "Instagram",
@@ -26,5 +36,4 @@ export const profile: Profile = {
     },
   ],
   contactUrl: "#contact",
-  cvUrl: "#",
 };
