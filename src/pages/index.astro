@@ -9,14 +9,15 @@ import { getAllWorks } from "../data/works";
 import { profile } from "../data/profile";
 
 const works = await getAllWorks();
-const heroTitle = "いろいろやるデザイナー 清水です";
-const heroDescription = "ここにもう少し具体的な説明を書くつもりです";
 ---
 
 <BaseLayout title="Yuki Shimizu — Portfolio">
   <Header />
   <main id="main">
-    <Hero title={heroTitle} description={heroDescription} />
+    <Hero
+      title="Yuki Shimizu's Portfolio"
+      description="I'm a UI/UX Designer who loves to create functional user experiences."
+    />
     <WorkGrid works={works} />
     <About profile={profile} />
   </main>

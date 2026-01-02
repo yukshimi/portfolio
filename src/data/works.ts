@@ -15,7 +15,20 @@ export async function getWorkBySlug(slug: string): Promise<Work | undefined> {
 export async function getAllWorks(): Promise<Work[]> {
   const entries = await getCollection("works");
 
-  return entries.map((entry) => ({
+  const sortedEntries = [...entries].sort((a, b) => {
+    // year: desc (newest first)
+    const yearDiff = b.data.year - a.data.year;
+    if (yearDiff !== 0) return yearDiff;
+
+    // title: asc (stable ordering for same year)
+    const titleDiff = a.data.title.localeCompare(b.data.title, "ja");
+    if (titleDiff !== 0) return titleDiff;
+
+    // slug: asc (final tie-breaker)
+    return a.slug.localeCompare(b.slug, "ja");
+  });
+
+  return sortedEntries.map((entry) => ({
     slug: entry.slug,
     category: entry.data.category,
     year: entry.data.year,
@@ -29,6 +42,6 @@ export async function getAllWorks(): Promise<Work[]> {
     thumbnail: entry.data.thumbnail,
     tags: entry.data.tags,
     link: entry.data.link,
-    content: entry.data.content,
+    content: (entry.data.content ?? []) as Work["content"],
   }));
 }

@@ -1,7 +1,7 @@
 ---
 slug: "standby"
 category: "Web Design / Development"
-year: 2024
+year: 2023
 company: "スタンバイ株式会社"
 title: "求人サイト「Standby」の制作・改善"
 thumbnailTitle: "求人サイトStandby<br>制作・改善"

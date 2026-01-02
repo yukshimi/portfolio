@@ -1,7 +1,7 @@
 ---
 slug: "Lunch Match"
 category: "App Design"
-year: 2024
+year: 2022
 company: "副業"
 title: "マッチングアプリ「Lunch Match」のデザイン"
 thumbnailTitle: "マッチングアプリ<br>Lunch Match<br>デザイン"

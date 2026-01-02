@@ -42,8 +42,12 @@ const categoryClass =
     <h2 class="sr-only">Work</h2>
     <div class={gridClass}>
       {
-        works.map((work) => (
-          <a href={`/work/${work.slug}/`}>
+        works.map((work, index) => (
+          <a
+            href={`/work/${work.slug}/`}
+            data-reveal
+            style={`--reveal-delay: ${index * 60}ms;`}
+          >
             <div
               class="aspect-square bg-center bg-cover"
               style={`background-image: url('${work.thumbnail}');`}
