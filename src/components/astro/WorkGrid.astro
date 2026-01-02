@@ -32,7 +32,9 @@ const titleClass =
 
 const categoryBaseClass = "opacity-50";
 const categoryClass =
-  resolvedSize === "sm" ? `${categoryBaseClass} text-sm` : categoryBaseClass;
+  resolvedSize === "sm"
+    ? `${categoryBaseClass} text-xs`
+    : `${categoryBaseClass} text-sm`;
 ---
 
 <section id="work" class={sectionClass}>

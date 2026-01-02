@@ -1,13 +1,13 @@
 ---
-slug: "lunchmatch"
-category: "App Design"
-year: 2022
+slug: "yahoo-weather"
+category: "Web Design"
+year: 2021
 company: "副業"
 title: "マッチングアプリ「Lunch Match」のデザイン"
 thumbnailTitle: "マッチングアプリ<br>Lunch Match<br>デザイン"
 projectTitle: "マッチングアプリLunch Matchのデザイン"
 description: "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます"
-thumbnail: "/work/lunchmatch/thumbnail.avif"
+thumbnail: "/work/yahoo-weather/thumbnail.png"
 tags:
   - "Web Design"
   - "Web Development"
