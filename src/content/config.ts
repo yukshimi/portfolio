@@ -37,7 +37,7 @@ const worksCollection = defineCollection({
     detailDescription: z.string().optional(),
     thumbnail: z.string(),
     tags: z.array(z.string()).optional(),
-    link: z.string().optional(),
+    url: z.string().optional(),
 
     /** 作品詳細の“ブロック配列”は frontmatter 側で管理（Markdown本文は自由に使ってOK） */
     content: z.array(workContentSchema).default([]),

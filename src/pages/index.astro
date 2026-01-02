@@ -9,9 +9,10 @@ import { getAllWorks } from "../data/works";
 import { profile } from "../data/profile";
 
 const works = await getAllWorks();
+const metaDescription = profile.bio.trim().slice(0, 160);
 ---
 
-<BaseLayout title="Yuki Shimizu — Portfolio">
+<BaseLayout title="Yuki Shimizu — Portfolio" description={metaDescription}>
   <Header />
   <main id="main">
     <Hero

@@ -2,13 +2,15 @@
 import "../styles/fonts.css";
 import "../styles/global.css";
 import ContactModal from "../components/react/ContactModal";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = "Minimalist portfolio template" } = Astro.props;
+const { title, description } = Astro.props;
+const metaDescription = (description ?? title).trim();
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 ---
 
@@ -16,7 +18,8 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 <html lang="ja" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
+    <ViewTransitions />
+    <meta name="description" content={metaDescription} />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="googlebot" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,57 +43,67 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
     <slot />
     <script is:inline>
       (() => {
-        // Markdown本文（<Content />）の直下要素に data-reveal を付与して
-        // 既存のリビールアニメーションと同じ挙動（60ms刻み）に揃える
-        const markdownBlocks = document.querySelectorAll(
-          ".work-markdown[data-markdown-reveal-start]",
-        );
-
-        markdownBlocks.forEach((container) => {
-          const start = Number(
-            container.getAttribute("data-markdown-reveal-start") ?? "0",
+        const initReveal = () => {
+          // Markdown本文（<Content />）の直下要素に data-reveal を付与して
+          // 既存のリビールアニメーションと同じ挙動（60ms刻み）に揃える
+          const markdownBlocks = document.querySelectorAll(
+            ".work-markdown[data-markdown-reveal-start]",
           );
-          const children = container.querySelectorAll(":scope > *");
 
-          children.forEach((el, i) => {
-            el.setAttribute("data-reveal", "true");
-            el.style.setProperty("--reveal-delay", `${(start + i) * 60}ms`);
-          });
-        });
+          markdownBlocks.forEach((container) => {
+            const start = Number(
+              container.getAttribute("data-markdown-reveal-start") ?? "0",
+            );
+            const children = container.querySelectorAll(":scope > *");
 
-        const revealTargets = document.querySelectorAll("[data-reveal]");
-        if (!revealTargets.length) return;
-
-        const prefersReducedMotion = window.matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches;
-
-        if (prefersReducedMotion) {
-          revealTargets.forEach((el) => el.classList.add("is-revealed"));
-          return;
-        }
-
-        if (!("IntersectionObserver" in window)) {
-          revealTargets.forEach((el) => el.classList.add("is-revealed"));
-          return;
-        }
-
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (!entry.isIntersecting) return;
-              entry.target.classList.add("is-revealed");
-              observer.unobserve(entry.target);
+            children.forEach((el, i) => {
+              el.setAttribute("data-reveal", "true");
+              el.style.setProperty("--reveal-delay", "0ms");
             });
-          },
-          {
-            root: null,
-            rootMargin: "0px 0px -10% 0px",
-            threshold: 0.1,
-          },
-        );
+          });
 
-        revealTargets.forEach((el) => observer.observe(el));
+          const revealTargets = document.querySelectorAll("[data-reveal]");
+          if (!revealTargets.length) return;
+
+          const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)",
+          ).matches;
+
+          if (prefersReducedMotion) {
+            revealTargets.forEach((el) => el.classList.add("is-revealed"));
+            return;
+          }
+
+          if (!("IntersectionObserver" in window)) {
+            revealTargets.forEach((el) => el.classList.add("is-revealed"));
+            return;
+          }
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("is-revealed");
+                observer.unobserve(entry.target);
+              });
+            },
+            {
+              root: null,
+              rootMargin: "0px 0px -10% 0px",
+              threshold: 0.1,
+            },
+          );
+
+          revealTargets.forEach((el) => {
+            if (el.classList.contains("is-revealed")) return;
+            observer.observe(el);
+          });
+        };
+
+        // 初回ロード
+        initReveal();
+        // View Transitions（クライアント遷移）後にも再初期化
+        document.addEventListener("astro:page-load", initReveal);
       })();
     </script>
   </body>

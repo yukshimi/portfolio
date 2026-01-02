@@ -41,8 +41,8 @@ export interface Work {
   content: WorkContent[];
   /** タグ（オプション） */
   tags?: string[];
-  /** 外部リンク（オプション） */
-  link?: string;
+  /** 外部URL（オプション） */
+  url?: string;
 }
 
 /**

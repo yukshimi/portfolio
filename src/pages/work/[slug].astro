@@ -4,7 +4,6 @@ import Header from "../../components/astro/Header.astro";
 import About from "../../components/astro/About.astro";
 import Footer from "../../components/astro/Footer.astro";
 import WorkGrid from "../../components/astro/WorkGrid.astro";
-import Button from "../../components/astro/Button.astro";
 import { getEntryBySlug } from "astro:content";
 import { getAllWorks } from "../../data/works";
 import { profile } from "../../data/profile";
@@ -23,8 +22,18 @@ if (!entry) {
 
 const work = { ...entry.data, slug: entry.slug };
 const projectTitle = work.projectTitle ?? work.title;
+const workUrl = work.url;
 const markdownBody = entry.body?.trim();
 const { Content } = await entry.render();
+const metaDescription = [
+  work.company,
+  String(work.year),
+  work.detailDescription || work.description,
+]
+  .filter(Boolean)
+  .join(" / ")
+  .trim()
+  .slice(0, 160);
 
 // 静的生成のための全スラッグを取得
 export async function getStaticPaths() {
@@ -35,7 +44,10 @@ export async function getStaticPaths() {
 }
 ---
 
-<BaseLayout title={`${work.title} | Yuki Shimizu`}>
+<BaseLayout
+  title={`${work.title} | Yuki Shimizu`}
+  description={metaDescription}
+>
   <Header />
   <main id="main" class="flex flex-col gap-section-gap">
     <article class="flex flex-col gap-section-gap py-section-gap">
@@ -46,9 +58,25 @@ export async function getStaticPaths() {
           class="flex flex-row items-center gap-item-gap max-[800px]:flex-col max-[800px]:items-start"
         >
           <div class="flex flex-col items-start gap-item-gap">
-            <h1 class="text-4xl sm:text-5xl leading-relaxed sm:leading-relaxed">
-              {projectTitle}
-            </h1>
+            <div class="flex flex-col items-start gap-2">
+              <h1
+                class="text-4xl sm:text-5xl leading-relaxed sm:leading-relaxed"
+              >
+                {projectTitle}
+              </h1>
+              {
+                workUrl && (
+                  <a
+                    href={workUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="text-small opacity-50 break-all hover:opacity-100"
+                  >
+                    {workUrl}
+                  </a>
+                )
+              }
+            </div>
             <div
               class="flex flex-row flex-wrap items-center gap-thin-gap max-[800px]:items-center max-[800px]:flex-wrap"
             >
@@ -67,13 +95,6 @@ export async function getStaticPaths() {
                     <img src="/img/icon/tag.svg" alt="Tag" class="block" />
                     <p>{work.tags.join(", ")}</p>
                   </div>
-                )
-              }
-              {
-                work.link && (
-                  <Button href={work.link} variant="secondary">
-                    Link button
-                  </Button>
                 )
               }
             </div>
@@ -102,7 +123,7 @@ export async function getStaticPaths() {
                     alt={item.alt || `${work.title} - Image ${index + 1}`}
                     class="block max-w-full h-auto"
                     data-reveal
-                    style={`--reveal-delay: ${index * 60}ms;`}
+                    style="--reveal-delay: 0ms;"
                   />
                 );
               }
@@ -117,7 +138,7 @@ export async function getStaticPaths() {
                   <div
                     class="w-full min-w-0 max-w-full"
                     data-reveal
-                    style={`--reveal-delay: ${index * 60}ms;`}
+                    style="--reveal-delay: 0ms;"
                   >
                     {item.style === "ordered" ? (
                       <ol class={`text-p leading-8 break-words ${listClass}`}>
@@ -140,7 +161,7 @@ export async function getStaticPaths() {
                 <div
                   class="w-full min-w-0 max-w-full"
                   data-reveal
-                  style={`--reveal-delay: ${index * 60}ms;`}
+                  style="--reveal-delay: 0ms;"
                 >
                   <p class="text-p leading-8 whitespace-pre-line break-words">
                     {item.content}
