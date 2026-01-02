@@ -1,33 +1,32 @@
 ---
 slug: "standby"
 category: "Web Design / Development"
-year: 2023
+year: 2020
 company: "スタンバイ株式会社"
 title: "求人サイト「Standby」の制作・改善"
 thumbnailTitle: "求人サイトStandby<br>制作・改善"
 projectTitle: "求人サイトStandbyの制作・改善"
 description: "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます"
 thumbnail: "/work/stanby/thumbnail.avif"
+url: "https://jp.stanby.com/"
 tags:
   - "Web Design"
   - "Web Development"
   - "WordPress"
 ---
 
-## 概要
+![](/work/stanby/main.png)
 
-TODO: ここに概要を書いてください。
+## プロジェクト
 
-## 担当
+いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます
 
-- TODO: 役割（例：デザイン、実装、運用など）
-- TODO: 期間（任意）
+![](/work/stanby/01.png)
 
-## 取り組み
+![](/work/stanby/02.png)
 
-- TODO: 取り組み1
-- TODO: 取り組み2
+![](/work/stanby/03.png)
 
-## 成果
+![](/work/stanby/04.png)
 
-- TODO: 数値や改善点があれば
+![](/work/stanby/05.png)

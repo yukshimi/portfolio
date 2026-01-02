@@ -1,27 +1,27 @@
 ---
-slug: "lunchmatch"
+slug: "logolabo"
 category: "App Design"
-year: 2018
+year: 2022
 company: "副業"
-title: "マッチングアプリ「Lunch Match」のデザイン"
-thumbnailTitle: "マッチングアプリ<br>Lunch Match<br>デザイン"
-projectTitle: "マッチングアプリLunch Matchのデザイン"
+title: "ブランド管理SaaS「LogoLabo」のデザイン"
+thumbnailTitle: "ブランド管理SaaS<br>LogoLabo<br>デザイン"
+projectTitle: "ブランド管理SaaS「LogoLabo」のデザイン"
 description: "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます"
-thumbnail: "/work/lunchmatch/thumbnail.avif"
+thumbnail: "/work/logolabo/thumbnail.png"
 tags:
   - "Web Design"
   - "Web Development"
   - "WordPress"
 ---
 
-![](/work/lunchmatch/main.png)
+![](/work/logolabo/main.png)
 
-![](/work/lunchmatch/01.png)
+![](/work/logolabo/01.png)
 
-![](/work/lunchmatch/02.png)
+![](/work/logolabo/02.png)
 
-![](/work/lunchmatch/03.png)
+![](/work/logolabo/03.png)
 
-![](/work/lunchmatch/04.png)
+![](/work/logolabo/04.png)
 
-![](/work/lunchmatch/05.png)
+![](/work/logolabo/05.png)

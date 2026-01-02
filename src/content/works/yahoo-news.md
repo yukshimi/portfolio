@@ -1,33 +1,26 @@
 ---
 slug: "yahoo-news"
 category: "Web Design"
-year: 2021
-company: "副業"
-title: "マッチングアプリ「Lunch Match」のデザイン"
-thumbnailTitle: "マッチングアプリ<br>Lunch Match<br>デザイン"
-projectTitle: "マッチングアプリLunch Matchのデザイン"
+year: 2018
+company: "Yahoo 株式会社"
+title: "ヤフーニュースのウェブのデザイン・実装"
+thumbnailTitle: "ヤフーニュースの<br>ウェブの<br>デザイン・実装"
+projectTitle: "ヤフーニュースのウェブのデザイン・実装"
 description: "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます"
 thumbnail: "/work/yahoo-news/thumbnail.png"
+url: "https://news.yahoo.co.jp/"
 tags:
   - "Web Design"
   - "Web Development"
   - "WordPress"
 ---
 
-## 概要
+![](/work/yahoo-news/main.png)
 
-TODO: ここに概要を書いてください。
+![](/work/yahoo-news/01.png)
 
-## 担当
+![](/work/yahoo-news/02.png)
 
-- TODO: 役割（例：デザイン、実装、運用など）
-- TODO: 期間（任意）
+![](/work/yahoo-news/03.png)
 
-## 取り組み
-
-- TODO: 取り組み1
-- TODO: 取り組み2
-
-## 成果
-
-- TODO: 数値や改善点があれば
+![](/work/yahoo-news/04.png)

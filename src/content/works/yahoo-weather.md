@@ -1,33 +1,26 @@
 ---
 slug: "yahoo-weather"
 category: "Web Design"
-year: 2021
-company: "副業"
-title: "マッチングアプリ「Lunch Match」のデザイン"
-thumbnailTitle: "マッチングアプリ<br>Lunch Match<br>デザイン"
-projectTitle: "マッチングアプリLunch Matchのデザイン"
+year: 2016
+company: "Yahoo 株式会社"
+title: "ヤフー天気のウェブ・アプリのデザイン"
+thumbnailTitle: "ヤフー天気の<br>ウェブ・アプリの<br>デザイン"
+projectTitle: "ヤフー天気のウェブ・アプリのデザイン"
 description: "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます"
 thumbnail: "/work/yahoo-weather/thumbnail.png"
+url: "https://weather.yahoo.co.jp/weather/"
 tags:
   - "Web Design"
   - "Web Development"
   - "WordPress"
 ---
 
-## 概要
+![](/work/yahoo-weather/main.png)
 
-TODO: ここに概要を書いてください。
+![](/work/yahoo-weather/01.png)
 
-## 担当
+![](/work/yahoo-weather/02.png)
 
-- TODO: 役割（例：デザイン、実装、運用など）
-- TODO: 期間（任意）
+![](/work/yahoo-weather/03.png)
 
-## 取り組み
-
-- TODO: 取り組み1
-- TODO: 取り組み2
-
-## 成果
-
-- TODO: 数値や改善点があれば
+![](/work/yahoo-weather/04.png)
