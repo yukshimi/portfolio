@@ -166,4 +166,8 @@
   .work-markdown img {
     @apply block max-w-full h-auto;
   }
+
+  .work-markdown a {
+    @apply underline;
+  }
 }
