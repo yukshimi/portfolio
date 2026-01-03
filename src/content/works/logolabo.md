@@ -7,10 +7,6 @@ title: "ブランド管理SaaS「LogoLabo」のデザイン"
 projectTitle: "ブランド管理SaaS「LogoLabo」のデザイン"
 description: "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます"
 thumbnail: "/work/logolabo/thumbnail.png"
-tags:
-  - "WebDesign"
-  - "WebDevelopment"
-  - "WordPress"
 ---
 
 ![](/work/logolabo/main.png)

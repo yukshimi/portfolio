@@ -7,17 +7,13 @@ title: "ポートフォリオサイトの実装"
 projectTitle: "ポートフォリオサイトの実装"
 description: "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます"
 thumbnail: "/work/portfolio/thumbnail.png"
-tags:
-  - "WebDesign"
-  - "WebDevelopment"
-  - "WordPress"
 ---
 
 ![](/work/portfolio/main.png)
 
 ## 技術スタック
 
-簡易なポートフォリオとしてちょうど良い技術スタックを検討し、以下の組み合わせで実装。
+簡易なポートフォリオとして適切な技術スタックを検討し、以下の組み合わせで実装。
 
 - フレームワーク
   - Astro + React + TypeScript
@@ -25,11 +21,17 @@ tags:
   - Tailwind.css
 - デプロイ方法
   - Cloudflare
+- 画像拡張子
+  - AVIF
 - その他
   - Prettier
   - Husky
 
 AstroとCloudflareは初めての使用だったが、非常に使いやすく、作業効率を高めてくれました。
+
+AstroでSSGとしてサイト生成、AVIF形式の画像の利用の影響もあり、ページ表示速度も良好な結果になりました。
+
+![](/work/portfolio/01.png)
 
 ## AI活用
 
@@ -38,7 +40,7 @@ AstroとCloudflareは初めての使用だったが、非常に使いやすく�
 具体的には、CursorRulesの詳細な設計をすることで、Cursorが生成するコードの精度を向上。
 また、プロンプトの入力には、音声入力ツールのAqua Voiceを使用し、詳細な指示を簡単かつ迅速に指定できるようにしました。
 
-![](/work/portfolio/01.png)
+![](/work/portfolio/02.png)
 
 ## デザインの工夫
 
@@ -51,4 +53,4 @@ AstroとCloudflareは初めての使用だったが、非常に使いやすく�
 - 日英で違うフォントを組み合わせつつ、英字用のフォントサイズを少し大きく
 - タイトルテキストの上下余白をカットして、テキストと他の要素の上部が揃うように
 
-![](/work/portfolio/02.png)
+![](/work/portfolio/03.png)

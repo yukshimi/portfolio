@@ -39,7 +39,6 @@ export async function getAllWorks(): Promise<Work[]> {
     detailTitle: entry.data.detailTitle,
     detailDescription: entry.data.detailDescription,
     thumbnail: entry.data.thumbnail,
-    tags: entry.data.tags,
     url: entry.data.url,
   }));
 }

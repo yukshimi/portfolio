@@ -127,8 +127,19 @@
   /**
    * 作品詳細のMarkdown本文用のスタイル
    */
+  /* 基本は詰め気味の縦リズム */
   .work-markdown > * + * {
     margin-top: var(--item-gap);
+  }
+
+  /* 見出しの手前は少し広め（章の切れ目を作る） */
+  .work-markdown > * + :is(h1, h2, h3, h4, h5, h6) {
+    margin-top: calc(var(--item-gap) * 3);
+  }
+
+  /* 見出し直後は詰める */
+  .work-markdown > :is(h1, h2, h3, h4, h5, h6) + * {
+    margin-top: calc(var(--item-gap) * 0.4);
   }
 
   .work-markdown p {

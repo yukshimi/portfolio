@@ -7,10 +7,6 @@ title: "Sales MarkerのWEBサイト運用・改善"
 projectTitle: "Sales MarkerのWEBサイト運用・改善"
 description: "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます"
 thumbnail: "/work/salesmarker-web/thumbnail.avif"
-tags:
-  - "WebDesign"
-  - "WebDevelopment"
-  - "WordPress"
 ---
 
 ## 詳細

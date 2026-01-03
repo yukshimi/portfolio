@@ -7,10 +7,6 @@ title: "マッチングアプリ「Lunch Match」のデザイン"
 projectTitle: "マッチングアプリLunch Matchのデザイン"
 description: "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます"
 thumbnail: "/work/lunchmatch/thumbnail.avif"
-tags:
-  - "WebDesign"
-  - "WebDevelopment"
-  - "WordPress"
 ---
 
 ![](/work/lunchmatch/main.png)

@@ -8,10 +8,6 @@ projectTitle: "Sales Markerの採用サイト刷新"
 description: "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます"
 thumbnail: "/work/salesmarker-recruit/thumbnail.png"
 url: "https://corp.sales-marker.jp/recruit/"
-tags:
-  - "WebDesign"
-  - "WebDevelopment"
-  - "WordPress"
 ---
 
 ![Sales Marker - Main view](/work/salesmarker-recruit/main.png)

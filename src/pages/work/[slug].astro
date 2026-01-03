@@ -83,14 +83,12 @@ export async function getStaticPaths() {
               <img src="/img/icon/calendar.svg" alt="Year" class="block" />
               <p>{work.year}</p>
             </div>
-            {
-              work.tags && work.tags.length > 0 && (
-                <div class="flex flex-row items-center gap-[calc(var(--thin-gap)/2)]">
-                  <img src="/img/icon/tag.svg" alt="Tag" class="block" />
-                  <p>{work.tags.join(", ")}</p>
-                </div>
-              )
-            }
+            <div
+              class="flex flex-row items-center gap-[calc(var(--thin-gap)/2)]"
+            >
+              <img src="/img/icon/tag.svg" alt="Category" class="block" />
+              <p>{work.category}</p>
+            </div>
           </div>
 
           <p class="opacity-50 leading-8">

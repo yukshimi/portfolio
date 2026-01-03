@@ -22,8 +22,6 @@ export interface Work {
   projectTitle?: string;
   /** サムネイル画像のパス */
   thumbnail: string;
-  /** タグ（オプション） */
-  tags?: string[];
   /** 外部URL（オプション） */
   url?: string;
 }

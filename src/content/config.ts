@@ -18,7 +18,6 @@ const worksCollection = defineCollection({
     detailTitle: z.string().optional(),
     detailDescription: z.string().optional(),
     thumbnail: z.string(),
-    tags: z.array(z.string()).optional(),
     url: z.string().optional(),
   }),
 });
