@@ -20,8 +20,8 @@ export default {
         ],
       },
       fontSize: {
-        h1: "3.5rem",
-        h2: "2.5rem",
+        h1: "3rem",
+        h2: "2rem",
         h3: "1.5rem",
         p: "1rem",
         small: "0.8rem",
@@ -31,6 +31,7 @@ export default {
         "div-gap": "6rem",
         "item-gap": "4rem",
         "thin-gap": "2rem",
+        "min-gap": "1rem",
       },
       backdropBlur: {
         blur: "1rem",
