@@ -4,13 +4,12 @@ category: "App Design"
 year: 2022
 company: "副業"
 title: "ブランド管理SaaS「LogoLabo」のデザイン"
-thumbnailTitle: "ブランド管理SaaS<br>LogoLabo<br>デザイン"
 projectTitle: "ブランド管理SaaS「LogoLabo」のデザイン"
 description: "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます"
 thumbnail: "/work/logolabo/thumbnail.png"
 tags:
-  - "Web Design"
-  - "Web Development"
+  - "WebDesign"
+  - "WebDevelopment"
   - "WordPress"
 ---
 

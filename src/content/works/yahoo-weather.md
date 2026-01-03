@@ -4,14 +4,13 @@ category: "Web Design"
 year: 2016
 company: "Yahoo 株式会社"
 title: "ヤフー天気のウェブ・アプリのデザイン"
-thumbnailTitle: "ヤフー天気の<br>ウェブ・アプリの<br>デザイン"
 projectTitle: "ヤフー天気のウェブ・アプリのデザイン"
 description: "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます"
 thumbnail: "/work/yahoo-weather/thumbnail.png"
 url: "https://weather.yahoo.co.jp/weather/"
 tags:
-  - "Web Design"
-  - "Web Development"
+  - "WebDesign"
+  - "WebDevelopment"
   - "WordPress"
 ---
 

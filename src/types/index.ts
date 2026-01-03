@@ -6,8 +6,6 @@ export interface Work {
   slug: string;
   /** タイトル */
   title: string;
-  /** サムネイルタイトル */
-  thumbnailTitle: string;
   /** 会社名 */
   company: string;
   /** カテゴリー */

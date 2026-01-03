@@ -1,22 +1,21 @@
 ---
 slug: "salesmarker-web"
-category: "Web Design / Development"
+category: "WebDesign/Development"
 year: 2024
 company: "株式会社Sales Marker"
 title: "Sales MarkerのWEBサイト運用・改善"
-thumbnailTitle: "Sales Marker<br>WEBサイト運用・改善"
 projectTitle: "Sales MarkerのWEBサイト運用・改善"
 description: "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます"
 thumbnail: "/work/salesmarker-web/thumbnail.avif"
 tags:
-  - "Web Design"
-  - "Web Development"
+  - "WebDesign"
+  - "WebDevelopment"
   - "WordPress"
 ---
 
 ## 詳細
 
-![Sales Marker - Main view](/work/salesmarker-web/01.avif)
+![Sales Marker - Main view](/work/salesmarker-web/01.png)
 
 いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます
 
@@ -24,17 +23,25 @@ tags:
 - 項目2
 - 項目3
 
-![Sales Marker - Feature 1](/work/salesmarker-web/02.avif)
+![Sales Marker - Feature 1](/work/salesmarker-web/02.png)
 
 いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます
 
-![Sales Marker - Feature 1](/work/salesmarker-web/02.avif)
+![Sales Marker - Feature 1](/work/salesmarker-web/03.png)
 
 いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます
 
-![Sales Marker - Feature 1](/work/salesmarker-web/02.avif)
+![Sales Marker - Feature 1](/work/salesmarker-web/04.png)
 
 いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます
+
+![Sales Marker - Feature 1](/work/salesmarker-web/05.png)
+
+![Sales Marker - Feature 1](/work/salesmarker-web/06.png)
+
+![Sales Marker - Feature 1](/work/salesmarker-web/07.png)
+
+![Sales Marker - Feature 1](/work/salesmarker-web/08.png)
 
 ## 概要
 

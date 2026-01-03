@@ -13,7 +13,6 @@ const worksCollection = defineCollection({
     year: z.number(),
     company: z.string(),
     title: z.string(),
-    thumbnailTitle: z.string(),
     projectTitle: z.string().optional(),
     description: z.string(),
     detailTitle: z.string().optional(),

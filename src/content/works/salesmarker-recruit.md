@@ -1,17 +1,16 @@
 ---
 slug: "salesmarker-recruit"
-category: "Web Design / Development"
+category: "WebDesign/Development"
 year: 2024
 company: "株式会社Sales Marker"
 title: "Sales Markerの採用サイト刷新"
-thumbnailTitle: "Sales Marker<br>採用サイト刷新"
 projectTitle: "Sales Markerの採用サイト刷新"
 description: "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます"
 thumbnail: "/work/salesmarker-recruit/thumbnail.png"
 url: "https://corp.sales-marker.jp/recruit/"
 tags:
-  - "Web Design"
-  - "Web Development"
+  - "WebDesign"
+  - "WebDevelopment"
   - "WordPress"
 ---
 

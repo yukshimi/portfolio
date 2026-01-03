@@ -34,7 +34,6 @@ export async function getAllWorks(): Promise<Work[]> {
     year: entry.data.year,
     company: entry.data.company,
     title: entry.data.title,
-    thumbnailTitle: entry.data.thumbnailTitle,
     projectTitle: entry.data.projectTitle,
     description: entry.data.description,
     detailTitle: entry.data.detailTitle,
