@@ -143,6 +143,15 @@
     margin-top: calc(var(--item-gap) * 0.4);
   }
 
+  /* ul/ol の上はさらに詰める（特に見出し直後） */
+  .work-markdown > * + :is(ul, ol) {
+    margin-top: calc(var(--item-gap) * 0.3);
+  }
+
+  .work-markdown > :is(h1, h2, h3, h4, h5, h6) + :is(ul, ol) {
+    margin-top: calc(var(--item-gap) * 0.25);
+  }
+
   .work-markdown p {
     @apply text-p leading-8 whitespace-pre-line break-words;
   }

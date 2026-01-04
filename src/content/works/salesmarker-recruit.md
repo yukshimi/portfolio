@@ -40,7 +40,11 @@ url: "https://corp.sales-marker.jp/recruit/"
 
 全体的にモダンな技術への刷新を実施しました。
 
-- タスクランナー：Gulp → Vite
-- スタイリング：Sass → Tailwind.css
+- タスクランナー
+  - Gulp → Vite
+- スタイリング
+  - Sass → Tailwind.css
+- WordPressのカスタムフィールド
+  - aaaa → SecureCustomField
 
-またWordPressの構造を見直し、SecureCustomFieldを活用して、WordPress上で運用できる箇所を増やしました。
+またFigmaMCPを活用して〜〜〜

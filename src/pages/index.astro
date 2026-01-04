@@ -9,7 +9,11 @@ import { getAllWorks } from "../data/works";
 import { profile } from "../data/profile";
 
 const works = await getAllWorks();
-const metaDescription = profile.bio.trim().slice(0, 160);
+const metaDescription = profile.bio
+  .replace(/<br\s*\/?>/gi, " ")
+  .replace(/<[^>]+>/g, "")
+  .trim()
+  .slice(0, 160);
 ---
 
 <BaseLayout title="Yuki Shimizu — Portfolio" description={metaDescription}>

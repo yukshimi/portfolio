@@ -1,10 +1,12 @@
 ---
 interface Props {
-  href: string;
+  href?: string;
   variant?: "primary" | "secondary" | "transparent";
   isMobileMenu?: boolean;
   class?: string;
   attrs?: Record<string, string>;
+  as?: "a" | "button";
+  type?: "button" | "submit" | "reset";
 }
 
 const {
@@ -13,6 +15,8 @@ const {
   isMobileMenu = false,
   class: className = "",
   attrs = {},
+  as = "a",
+  type = "button",
 } = Astro.props;
 
 const baseClasses =
@@ -32,6 +36,14 @@ const classes =
   `${baseClasses} ${variantClasses[variant]} ${mobileMenuClasses} ${className}`.trim();
 ---
 
-<a href={href} class={classes} {...attrs}>
-  <slot />
-</a>
+{
+  as === "button" ? (
+    <button type={type} class={classes} {...attrs}>
+      <slot />
+    </button>
+  ) : (
+    <a href={href ?? "#"} class={classes} {...attrs}>
+      <slot />
+    </a>
+  )
+}
