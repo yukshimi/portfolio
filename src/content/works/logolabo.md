@@ -1,6 +1,6 @@
 ---
 slug: "logolabo"
-category: "App Design"
+category: "UX/Design"
 year: 2024
 company: "副業"
 title: "ブランド許諾管理SaaS「Logo Labo」のデザイン"

@@ -1,6 +1,6 @@
 ---
 slug: "lunchmatch"
-category: "App Design"
+category: "UX/Design"
 year: 2018
 company: "副業"
 title: "マッチングアプリ「Lunch Match」のデザイン"

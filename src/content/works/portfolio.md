@@ -1,6 +1,6 @@
 ---
 slug: "portfoli"
-category: "WebDesign/Development"
+category: "Design/Development"
 year: 2026
 company: "副業"
 title: "ポートフォリオサイトの実装"

@@ -1,6 +1,6 @@
 ---
 slug: "yahoo-weather"
-category: "WebDesign/Development"
+category: "Design/Development"
 year: 2015
 company: "Yahoo 株式会社"
 title: "ヤフー天気のウェブ・アプリのデザイン・実装"

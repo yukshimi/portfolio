@@ -1,6 +1,6 @@
 ---
 slug: "standby"
-category: "WebDesign/Development"
+category: "Design/Development"
 year: 2021
 company: "スタンバイ株式会社"
 title: "求人サイト「スタンバイ」の制作・改善"

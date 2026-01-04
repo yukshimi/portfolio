@@ -1,6 +1,6 @@
 ---
 slug: "yahoo-news"
-category: "Web Design"
+category: "WebDesign/Development"
 year: 2017
 company: "Yahoo 株式会社"
 title: "ヤフーニュースのウェブのデザイン・実装"

@@ -1,58 +1,60 @@
 ---
 slug: "salesmarker-product"
-category: "WebDesign/Development"
-year: 2025
+category: "UX/Development"
+year: 2024
 company: "株式会社Sales Marker"
 title: "Sales Markerのプロダクトデザイン"
 projectTitle: "Sales Markerのプロダクトデザイン"
-description: "いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます"
+description: "最初は副業として、途中からは正社員としてSales Markerのプロダクトデザインを担当。1人目のデザイナーだったため、組織作りやデザインシステムの構築などをしながら、新規デザインを迅速に進め、プロダクトの成長に貢献しました。"
 thumbnail: "/work/salesmarker-product/thumbnail.png"
 ---
 
-## 詳細
+## Sales Markerとは
 
-![Sales Marker - Main view](/work/salesmarker-product/01.png)
+潜在顧客のインテントデータ（意図）を取得・分析し、適切なアプローチターゲットを見つけられる営業支援SaaSです。
+各種営業アプローチを、AIを活用して自動化する仕組みも提供しています。
 
-いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます
+![](/work/salesmarker-product/01.png)
 
-- 項目1項目1項目1項目1項目1項目1項目1項目1項目1項目1項目1項目1項目1項目1項目1
-- 項目2
-- 項目3
+## デザイン作業の進め方
 
-![Sales Marker - Feature 1](/work/salesmarker-product/02.png)
+新規機能の作成が矢継ぎ早に進む中で、開発のボトルネックにならないこと、全体の体験に不整合が発生しないことを意識してデザイン作業を進行。
+ユーザーごとのプランの違いや、連携している外部サービスごとの違いなど、複雑な仕様を分かりやすく整理しながら、UX設計を推進しました。
 
-いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます
+デザインの意図が実装に反映されていない箇所やアニメーション等はReact（Nuxt.js）のコードを自身で修正して、プロダクトの完成度を高めるように取り組みました。
+また自身ではコード修正が難しい箇所も、自律型AIエージェントのDevinを活用しつつ、エンジニアにプルリクを送るなどの工夫をしていました。
 
-![Sales Marker - Feature 1](/work/salesmarker-product/03.png)
+![](/work/salesmarker-product/02.png)
 
-いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます
+スケジュールに余裕がある案件では、ペルソナ作成、ユーザーストーリーマッピングなどを通して最適なUXを検討しました。
 
-![Sales Marker - Feature 1](/work/salesmarker-product/04.png)
+![](/work/salesmarker-product/03.png)
 
-いい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きますいい感じの説明を書きます
+![](/work/salesmarker-product/04.png)
 
-![Sales Marker - Feature 1](/work/salesmarker-product/05.png)
+## 新規プロダクトの立ち上げ
 
-![Sales Marker - Feature 1](/work/salesmarker-product/06.png)
+マーケティング活動を支援する「Markerting Marker」、採用活動を支援する「Recruit Marker」の立ち上げ時には、担当デザイナーのサポートをしながら、一部のデザイン作成にも従事。
 
-![Sales Marker - Feature 1](/work/salesmarker-product/07.png)
+「コンパウンドプロダクト」（複数のプロダクトを同時に開発・提供し、シナジーを生み出す）の思想をベースに、プロダクト間の連携や世界観の統一などを推進しました。
 
-![Sales Marker - Feature 1](/work/salesmarker-product/08.png)
+![](/work/salesmarker-product/05.png)
 
-## 概要
+## デザインシステム構築
 
-TODO: ここに概要を書いてください。
+迅速に新機能を作っていく必要があったため、デザイナーの検討時間を減らしつつ、デザイナー抜きでもデザイン作成が進められるように、ルールの整備やコンポーネントの作成を推進しました。
 
-## 担当
+![](/work/salesmarker-product/06.png)
 
-- TODO: 役割（例：デザイン、実装、運用など）
-- TODO: 期間（任意）
+MUIをベースにした独自カスタマイズの実装、Storybookの作成も一部担当しました。
 
-## 取り組み
+![](/work/salesmarker-product/07.png)
 
-- TODO: 取り組み1
-- TODO: 取り組み2
+## 英語でのコミュニケーション
 
-## 成果
+部下のデザイナー、同僚のエンジニアには英語話者も多かったため、日本語と英語を組み合わせてコミュニケーションをしていました。
+会話でのスムーズなコミュニケーションは難しいですが、テキストでのやりとりは問題ありません。
 
-- TODO: 数値や改善点があれば
+TOEIC Listening & Reading Testの学習にも取り組み、１年ほどで100点程度向上し、2025年2月には940点を獲得しました。
+
+![](/work/salesmarker-product/08.png)

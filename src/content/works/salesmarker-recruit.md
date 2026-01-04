@@ -1,6 +1,6 @@
 ---
 slug: "salesmarker-recruit"
-category: "WebDesign/Development"
+category: "UX/Development"
 year: 2025
 company: "株式会社Sales Marker"
 title: "Sales Markerの採用サイト刷新"
