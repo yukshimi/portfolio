@@ -1,12 +1,9 @@
 ---
-import Button from "./Button.astro";
-
 interface Props {
   title: string;
-  description: string;
 }
 
-const { title, description } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <section class="flex flex-col gap-section-gap pt-section-gap">
@@ -18,7 +15,6 @@ const { title, description } = Astro.props;
         <h1 class="text-4xl sm:text-5xl leading-relaxed sm:leading-relaxed">
           {title}
         </h1>
-        <p class="opacity-50">{description}</p>
       </div>
       <div class="flex-1 max-[800px]:hidden"></div>
     </div>
