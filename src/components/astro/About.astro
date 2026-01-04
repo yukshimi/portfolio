@@ -29,7 +29,7 @@ const { profile: profileData } = Astro.props;
             <b>{profileData.name}</b>, {profileData.role}
           </p>
         </div>
-        <p class="opacity-50 leading-7" set:html={profileData.bio} />
+        <p class="text-sm opacity-50 leading-7" set:html={profileData.bio} />
         {
           profileData.interviewUrls?.length > 0 && (
             <ul class="flex flex-row items-center gap-thin-gap opacity-50">
