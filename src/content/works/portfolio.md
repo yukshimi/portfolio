@@ -6,10 +6,10 @@ company: "副業"
 title: "ポートフォリオサイトの実装"
 projectTitle: "ポートフォリオサイトの実装"
 description: "今までの仕事内容をわかりやすくまとめたポートフォリオサイトを作成しました。新しい技術にもチャレンジしたく、AstroとCloudflareを初めて利用。AIを使って効率化することで、実装は2日ほどで終わらせることができました。"
-thumbnail: "/work/portfolio/thumbnail.png"
+thumbnail: "/work/portfolio/thumbnail.avif"
 ---
 
-![](/work/portfolio/main.png)
+![](/work/portfolio/main.avif)
 
 ## 技術スタック
 
@@ -31,7 +31,7 @@ AstroとCloudflareは初めての使用でしたが、非常に使いやすく�
 
 AstroでSSGとしてサイト生成、AVIF形式の画像の利用の影響もあり、ページ表示速度も良好な結果になりました。
 
-![](/work/portfolio/01.png)
+![](/work/portfolio/01.avif)
 
 ## AI活用
 
@@ -40,7 +40,7 @@ AstroでSSGとしてサイト生成、AVIF形式の画像の利用の影響も�
 具体的には、CursorRulesの詳細な設計をすることで、Cursorが生成するコードの精度を向上。
 また、プロンプトの入力には、音声入力ツールのAqua Voiceを使用し、詳細な指示を簡単かつ迅速に指定できるようにしました。
 
-![](/work/portfolio/02.png)
+![](/work/portfolio/02.avif)
 
 ## デザインの工夫
 
@@ -53,4 +53,4 @@ AstroでSSGとしてサイト生成、AVIF形式の画像の利用の影響も�
 - 日英で違うフォントを組み合わせつつ、英字用のフォントサイズを少し大きく
 - タイトルテキストの上下余白をカットして、テキストと他の要素の上部が揃うように
 
-![](/work/portfolio/03.png)
+![](/work/portfolio/03.avif)

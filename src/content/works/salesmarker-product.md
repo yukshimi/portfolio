@@ -6,7 +6,7 @@ company: "株式会社Sales Marker"
 title: "Sales Markerのプロダクトデザイン"
 projectTitle: "Sales Markerのプロダクトデザイン"
 description: "最初は副業として、途中からは正社員としてSales Markerのプロダクトデザインを担当。1人目のデザイナーだったため、組織作りやデザインシステムの構築などをしながら、新規デザインを迅速に進め、プロダクトの成長に貢献しました。"
-thumbnail: "/work/salesmarker-product/thumbnail.png"
+thumbnail: "/work/salesmarker-product/thumbnail.avif"
 ---
 
 ## Sales Markerとは
@@ -14,18 +14,18 @@ thumbnail: "/work/salesmarker-product/thumbnail.png"
 潜在顧客のインテントデータ（意図）を取得・分析し、適切なアプローチターゲットを見つけられる営業支援SaaSです。
 各種営業アプローチを、AIを活用して自動化する仕組みも提供しています。
 
-![](/work/salesmarker-product/01.png)
+![](/work/salesmarker-product/01.avif)
 
 ## デザイン作業の進め方
 
 新規機能の作成が矢継ぎ早に進む中で、開発のボトルネックにならないこと、全体の体験に不整合が発生しないことを意識してデザイン作業を進行。
 ユーザーごとのプランの違いや、連携している外部サービスごとの違いなど、複雑な仕様を分かりやすく整理しながら、UX設計を推進しました。
 
-![](/work/salesmarker-product/02.png)
+![](/work/salesmarker-product/02.avif)
 
 既存ユーザーに対して新規機能を分かりやすく、魅力的に伝えるためのクリエイティブ作成なども担当しました。
 
-![](/work/salesmarker-product/03.png)
+![](/work/salesmarker-product/03.avif)
 
 デザインの意図が実装に反映されていない箇所やアニメーション等はReact（Nuxt.js）のコードを自身で修正して、プロダクトの完成度を高めるように取り組みました。
 また自身ではコード修正が難しい箇所も、自律型AIエージェントのDevinを活用しつつ、エンジニアにプルリクを送るなどの工夫をしていました。
@@ -37,9 +37,9 @@ thumbnail: "/work/salesmarker-product/thumbnail.png"
 
 スケジュールに余裕がある案件では、ペルソナ作成、ユーザーストーリーマッピングなどを通して最適なUXを検討しました。
 
-![](/work/salesmarker-product/04.png)
+![](/work/salesmarker-product/04.avif)
 
-![](/work/salesmarker-product/05.png)
+![](/work/salesmarker-product/05.avif)
 
 ## 新規プロダクトの立ち上げ
 
@@ -47,17 +47,17 @@ thumbnail: "/work/salesmarker-product/thumbnail.png"
 
 「コンパウンドプロダクト」（複数のプロダクトを同時に開発・提供し、シナジーを生み出す）の思想をベースに、プロダクト間の連携や世界観の統一などを推進しました。
 
-![](/work/salesmarker-product/06.png)
+![](/work/salesmarker-product/06.avif)
 
 ## デザインシステム構築
 
 迅速に新機能を作っていく必要があったため、デザイナーの検討時間を減らしつつ、デザイナー抜きでもデザイン作成が進められるように、ルールの整備やコンポーネントの作成を推進しました。
 
-![](/work/salesmarker-product/07.png)
+![](/work/salesmarker-product/07.avif)
 
 MUIをベースにした独自カスタマイズの実装、Storybookの作成も一部担当しました。
 
-![](/work/salesmarker-product/08.png)
+![](/work/salesmarker-product/08.avif)
 
 ## 英語でのコミュニケーション
 
@@ -66,4 +66,4 @@ MUIをベースにした独自カスタマイズの実装、Storybookの作成�
 
 TOEIC Listening & Reading Testの学習にも取り組み、１年ほどで100点程度向上し、2025年2月には940点を獲得しました。
 
-![](/work/salesmarker-product/09.png)
+![](/work/salesmarker-product/09.avif)

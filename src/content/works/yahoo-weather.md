@@ -6,11 +6,11 @@ company: "Yahoo 株式会社"
 title: "ヤフー天気のウェブ・アプリのデザイン・実装"
 projectTitle: "ヤフー天気のウェブ・アプリのデザイン・実装"
 description: "2015年から2017年まで、ヤフー天気のデザイナーとして、アプリとウェブのデザイン、そして実装を担当。Daily Active Userが1000万を超えるアプリの機能改善やグロースハックに従事しました。"
-thumbnail: "/work/yahoo-weather/thumbnail.png"
+thumbnail: "/work/yahoo-weather/thumbnail.avif"
 url: "https://weather.yahoo.co.jp/weather/"
 ---
 
-![](/work/yahoo-weather/main.png)
+![](/work/yahoo-weather/main.avif)
 
 ## アプリデザインの工夫
 
@@ -18,20 +18,20 @@ url: "https://weather.yahoo.co.jp/weather/"
 毎日、簡単かつ迅速に必要な情報を取得できるようにデザインにこだわり、ファーストビューで必要な情報が完結できること、ウィジェットや通知を活用して、ユーザーが自動的にも情報を取得できるような体験設計をしていました。
 また競合サービスと差別化をするため、ユーザー数の多さを強みに、今の天気を投票してもらえるような機能も提供しています。
 
-![](/work/yahoo-weather/01.png)
+![](/work/yahoo-weather/01.avif)
 
-![](/work/yahoo-weather/02.png)
+![](/work/yahoo-weather/02.avif)
 
 ## 広告運用、ASO
 
 アプリをグロースさせていくために、YDN（Yahoo!ディスプレイアドネットワーク）広告の運用、アプリストアのPDCAも担当していました。
 広告は日々の天気に合わせ、各地域の特性に合わせた訴求をするなど、細かい運用を通して顧客獲得効率の向上を図っていました。
 
-![](/work/yahoo-weather/03.png)
+![](/work/yahoo-weather/03.avif)
 
 自社サイト内に掲載するバナーでは、スクロールに応じて訴求が変わるクリエイティブを提案・実装しました。
 
-![](/work/yahoo-weather/04.png)
+![](/work/yahoo-weather/04.avif)
 
 ## アクセシビリティの取り組み
 
@@ -39,4 +39,4 @@ url: "https://weather.yahoo.co.jp/weather/"
 
 以下の画像は、読み上げブラウザへの対応の例です。通常のユーザーは、黄色で「雷」と書いてあれば、雷注意報が出ていることが理解できますが、読み上げブラウザの場合、「雷」とだけ書いてあっても、注意報であることがわからないため、読み上げ用に「注意報」というテキストを非表示で追加しています。
 
-![](/work/yahoo-weather/05.png)
+![](/work/yahoo-weather/05.avif)

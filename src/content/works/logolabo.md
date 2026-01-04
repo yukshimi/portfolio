@@ -6,11 +6,11 @@ company: "副業"
 title: "ブランド許諾管理SaaS「Logo Labo」のデザイン"
 projectTitle: "ブランド許諾管理SaaS「Logo Labo」のデザイン"
 description: "知人がやっていた「Logo Labo」というサービスに副業で参加。デザイナー不在で開発を進めていた状態だったため、デザインルールの整備やコンポーネントごとのデザイン作成などを通してプロダクト作りに貢献。"
-thumbnail: "/work/logolabo/thumbnail.png"
+thumbnail: "/work/logolabo/thumbnail.avif"
 url: "https://logo-labo.com/"
 ---
 
-![](/work/logolabo/main.png)
+![](/work/logolabo/main.avif)
 
 ## Logo Laboとは
 
@@ -18,20 +18,20 @@ url: "https://logo-labo.com/"
 ロゴをはじめとするブランド資産・広報資産を「誰に」「いつまで」「どの範囲で」貸し出したかを一元管理。
 煩雑な手作業から解放され、ブランド保護と業務効率化を同時に実現します。
 
-![](/work/logolabo/01.png)
+![](/work/logolabo/01.avif)
 
 ## デザインシステムの構築
 
 他にデザイナーがおらず、自分の稼働量も非常に限られていたため、エンジニアだけでもデザイン作成・管理がしやすいようにデザインシステムの構築に取り組みました。
 具体的には、カラーやスペーシングなどのデザイントークンの定義、汎用コンポーネントの作成などに注力しました。
 
-![](/work/logolabo/02.png)
+![](/work/logolabo/02.avif)
 
-![](/work/logolabo/03.png)
+![](/work/logolabo/03.avif)
 
 ## 複雑なデザインの作成
 
 多くのブランド資産の管理、複数企業とのやり取りが発生するサービスのため、複雑な動線設計や使用検討が求められるページが存在しました。
 そのようなページではUX設計やデザイン案の作成なども担当し、プロダクト全体のUX向上に貢献しました。
 
-![](/work/logolabo/04.png)
+![](/work/logolabo/04.avif)

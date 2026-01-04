@@ -9,7 +9,7 @@ description: "趣味で友人と会社を立ち上げ、マッチングアプリ
 thumbnail: "/work/lunchmatch/thumbnail.avif"
 ---
 
-![](/work/lunchmatch/main.png)
+![](/work/lunchmatch/main.avif)
 
 ## プロダクトのコンセプト
 
@@ -22,17 +22,17 @@ thumbnail: "/work/lunchmatch/thumbnail.avif"
 起業やプロダクトづくりの教科書に則り、まずはコンセプトや簡単なプロトタイプを想定ユーザーに見てもらい、フィードバックをもらいました。
 そしてブラッシュアップをしていく中で「**明日のランチタイムに出会えるマッチングアプリ**」が多くの人、特に女性から好印象を持ってもらえたため、実際のプロダクト作りをスタートしました。
 
-![](/work/lunchmatch/01.png)
+![](/work/lunchmatch/01.avif)
 
 ## プロダクト作り
 
 自分はUX設計とデザインを主に担当しつつ、少しだけReactNativeの実装にも携わりました。
 マッチングアプリはユーザー登録、ユーザー間のコミュニケーション、アカウントの管理など複雑なフローがあるため、その認識を共有し開発を容易にするため、ワイヤーやデザインを丁寧に作成しました。
 
-![](/work/lunchmatch/02.png)
+![](/work/lunchmatch/02.avif)
 
-![](/work/lunchmatch/03.png)
+![](/work/lunchmatch/03.avif)
 
 「**ランチで出会える**」アプリであるため、明るく健全な印象を与えるようなデザインを意識しました。
 
-![](/work/lunchmatch/04.png)
+![](/work/lunchmatch/04.avif)
