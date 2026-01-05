@@ -39,10 +39,14 @@ thumbnail: "/work/salesmarker-branding/thumbnail.avif"
 
 ![](/work/salesmarker-branding/05.avif)
 
+デザイナーとコーダーの連携がスムーズになるように、Figmaと実装コードでデザイントークンを統一するなどの工夫を図っています。
+
+![](/work/salesmarker-branding/06.avif)
+
 デザイナーやコーダー抜きでLPのPDCAが回せるように、STUDIOを導入。
 パーツを準備しておくことで、誰でも最小工数で仮説検証ができる体制を構築しました。
 
-![](/work/salesmarker-branding/06.avif)
+![](/work/salesmarker-branding/07.avif)
 
 技術的な改善も進め、以下のような技術刷新を実施しました。
 
@@ -60,9 +64,9 @@ thumbnail: "/work/salesmarker-branding/thumbnail.avif"
 マーケティングチームとの連携がうまくいっていないという課題があったため、簡易なスクラム体制導入を推進。
 デイリースクラム・スプリントプランニング・レトロスペクティブを通して、連携や運用の改善が進んでいます。
 
-![](/work/salesmarker-branding/07.avif)
+![](/work/salesmarker-branding/08.avif)
 
 タスク管理にはAsanaを使い、タスクの抜け漏れや遅延などを防いでいます。
 デザイナー以外からも、Asanaのフォームを通じてデザイナーに簡単に依頼ができるような仕組みを構築しています。
 
-![](/work/salesmarker-branding/08.avif)
+![](/work/salesmarker-branding/09.avif)
