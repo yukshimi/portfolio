@@ -27,7 +27,20 @@ export default function MobileMenu({ children }: MobileMenuProps) {
 
   return (
     <>
-      <nav className={`group ${isOpen ? "active" : ""}`}>{children}</nav>
+      <nav
+        className={`group ${isOpen ? "active" : ""}`}
+        onClick={(e) => {
+          if (!isOpen) return;
+          const target = e.target as HTMLElement | null;
+          if (!target) return;
+          // Close when a menu item is tapped (links/buttons inside the menu)
+          const activator = target.closest("a,button");
+          if (!activator) return;
+          setIsOpen(false);
+        }}
+      >
+        {children}
+      </nav>
       <button
         className={[
           "hidden max-[800px]:flex max-[800px]:bg-transparent max-[800px]:border-none max-[800px]:cursor-pointer",
