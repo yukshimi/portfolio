@@ -17,12 +17,12 @@ import Button from "./Button.astro";
         class="block"
       />
     </a>
-    <MobileMenu client:load>
+    <MobileMenu client:idle>
       <ul
-        class="m-0 max-[800px]:absolute max-[800px]:w-screen max-[800px]:m-0 max-[800px]:top-[calc(calc(var(--thin-gap)*2)+calc(var(--thin-gap)*2)+20px)] max-[800px]:right-0 max-[800px]:flex-col max-[800px]:h-0 max-[800px]:transition-all max-[800px]:duration-[400ms] max-[800px]:z-[1000] max-[800px]:invisible max-[800px]:overflow-y-hidden max-[800px]:bg-white group-[.active]:max-[800px]:flex group-[.active]:max-[800px]:h-screen group-[.active]:max-[800px]:visible group-[.active]:max-[800px]:justify-between"
+        class="m-0 max-[800px]:fixed max-[800px]:w-screen max-[800px]:m-0 max-[800px]:pt-20 max-[800px]:top-0 max-[800px]:left-0 max-[800px]:right-0 max-[800px]:flex-col max-[800px]:h-0 max-[800px]:transition-all max-[800px]:duration-[400ms] max-[800px]:z-[9999] max-[800px]:invisible max-[800px]:overflow-y-hidden max-[800px]:bg-white group-[.active]:max-[800px]:flex group-[.active]:max-[800px]:h-[100dvh] group-[.active]:max-[800px]:visible"
       >
         <li
-          class="flex flex-row items-center gap-[calc(var(--thin-gap)/2)] max-[800px]:flex-col max-[800px]:justify-between max-[800px]:items-start max-[800px]:gap-item-gap max-[800px]:py-section-gap"
+          class="flex flex-row items-center gap-[calc(var(--thin-gap)/2)] max-[800px]:flex-col max-[800px]:items-start max-[800px]:gap-thin-gap max-[800px]:pt-0 max-[800px]:pb-thin-gap"
         >
           <Button href="/#work" variant="transparent" isMobileMenu={true}
             >Work</Button
