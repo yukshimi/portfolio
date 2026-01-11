@@ -5,29 +5,29 @@ year: 2025
 company: "株式会社Sales Marker"
 title: "Sales Markerの採用サイト刷新"
 projectTitle: "Sales Markerの採用サイト刷新"
-description: "新卒採用を開始し、中途採用にもより積極的に力を入れていくため、採用サイトのリニューアル（デザインの刷新、コンテンツの拡充）に取り組みました。"
+description: "採用強化に伴い、採用サイトをリニューアル（デザイン刷新・情報設計・コンテンツ拡充）。短期間で全体像を固め、実装まで推進しました。"
 thumbnail: "/work/salesmarker-recruit/thumbnail.avif"
 url: "https://corp.sales-marker.jp/recruit/"
 ---
 
-![Sales Marker - Main view](/work/salesmarker-recruit/main.avif)
+![](/work/salesmarker-recruit/main.avif)
 
 ## プロジェクト
 
-採用担当の人事メンバーが、ウェブサイト作成経験が多くない方であったため、イメージを分かりやすく可視化して議論を進めていくことを重視。
-まずはサイトマップとサイト内外での動線を整理し、必要なページやコンテンツの整理をしました。
+採用担当の人事メンバーはウェブサイト制作の経験が多くなかったため、イメージを可視化しながら合意形成を進めることを重視しました。  
+まずはサイトマップとサイト内外の動線を整理し、必要なページとコンテンツを定義しました。
 
-![Sales Marker - Main view](/work/salesmarker-recruit/01.avif)
+![](/work/salesmarker-recruit/01.avif)
 
-ワイヤーの作成はAIでサイトマップやワイヤーが作成できる<a href="https://www.relume.io/ja">Relume</a>を活用して半日程度で実施。
-人事メンバーともやりとりをしながら、効率的にサイトの全体像を決めることができました。
+ワイヤー作成は、AIでサイトマップやワイヤーを作成できる<a href="https://www.relume.io/ja">Relume</a>を活用し、半日程度で叩き台を作成。  
+人事メンバーとすり合わせながら、短いサイクルで全体像を固めました。
 
-![Sales Marker - Feature 1](/work/salesmarker-recruit/02.avif)
+![](/work/salesmarker-recruit/02.avif)
 
-ビジュアルデザインを担当したデザイナーと細かくやり取りをしながら、どんなデバイスサイズでもきれいに見られるように実装。
-また、応募者には英語話者も多いため、Google翻訳を利用して、英語テキスト作成の工数をかけずに英語に対応するなどの調整を実施しました。
+ビジュアルデザイン担当のデザイナーと密に連携し、どのデバイスでも崩れにくい実装を目指しました。  
+また応募者には英語話者も多いため、Google翻訳を活用して英語対応も行い、工数を増やさずに応募の間口を広げました。
 
-![Sales Marker - Feature 1](/work/salesmarker-recruit/03.avif)
+![](/work/salesmarker-recruit/03.avif)
 
 ## 技術
 
@@ -36,7 +36,7 @@ url: "https://corp.sales-marker.jp/recruit/"
 - タスクランナー
   - Gulp → Vite
 - スタイリング
-  - Sass → Tailwind.css
+  - Sass → Tailwind CSS
 - WordPressのカスタムフィールド
   - CustomFieldSuite → SecureCustomField
 
