@@ -4,11 +4,11 @@
 
 @layer base {
   :root {
-    --min-gap: 2rem;
-    --thin-gap: 2rem;
-    --item-gap: 4rem;
-    --div-gap: 6rem;
-    --section-gap: 8rem;
+    --min-gap: 1.5rem;
+    --thin-gap: 1.5rem;
+    --item-gap: 3rem;
+    --div-gap: 5rem;
+    --section-gap: 6rem;
   }
 
   html {
@@ -43,7 +43,7 @@
 
     /* lg~ */
     @media (min-width: 1024px) {
-      font-size: 1.3vw;
+      font-size: clamp(0px, 1.2vw, 20px);
     }
   }
 
@@ -128,7 +128,6 @@
   /**
    * 作品詳細のMarkdown本文用のスタイル
    */
-  /* 基本は詰め気味の縦リズム */
   .work-markdown > * + * {
     margin-top: var(--item-gap);
   }

@@ -5,7 +5,7 @@ year: 2024
 company: "副業"
 title: "ブランド許諾管理SaaS「Logo Labo」のデザイン"
 projectTitle: "ブランド許諾管理SaaS「Logo Labo」のデザイン"
-description: "デザイナー不在の開発体制に副業で参画し、デザイントークン整備とUIコンポーネント設計で、継続的に開発できる基盤を整えました。"
+description: "デザイナー不在の開発体制に副業で参画し、デザイントークン整備とUIコンポーネント設計で、継続的に開発できる基盤を整えました。複雑なユーザーフローになる画面では、できるだけシンプルかつ効率的なUXをエンジニアチームと議論しながら構築しました。"
 thumbnail: "/work/logolabo/thumbnail.avif"
 url: "https://logo-labo.com/"
 ---

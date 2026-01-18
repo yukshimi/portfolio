@@ -5,7 +5,7 @@ year: 2025
 company: "株式会社Sales Marker"
 title: "Sales Markerのブランディングデザイン"
 projectTitle: "Sales Markerのブランディングデザイン"
-description: "ブランディングデザイン部の部長として、メンバーのマネジメント、案件の推進、レビュー、改善の仕組み化まで担当しました。"
+description: "ブランディングデザイン部の部長として、メンバーのマネジメント、案件の推進、レビュー、改善の仕組み化などを実施。また、自らプロジェクトのリード、デザイン、実装等も担当して、プロダクトのブランディングやマーケティングを推進しています。"
 thumbnail: "/work/salesmarker-branding/thumbnail.avif"
 ---
 

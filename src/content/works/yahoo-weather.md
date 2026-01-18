@@ -2,10 +2,10 @@
 slug: "yahoo-weather"
 category: "Design/Development"
 year: 2015
-company: "Yahoo 株式会社"
+company: "ヤフー株式会社"
 title: "ヤフー天気のウェブ・アプリのデザイン・実装"
 projectTitle: "ヤフー天気のウェブ・アプリのデザイン・実装"
-description: "2015年から2017年まで、ヤフー天気のデザイナーとしてアプリとウェブのデザイン・実装を担当。DAU1,000万超の規模で、機能改善とグロース施策に取り組みました。"
+description: "2015年から2017年まで、ヤフー天気のデザイナーとしてアプリとウェブのデザイン・実装を担当。機能改善とグロース施策に取り組み、平均DAUを700万ほどから1,000万超まで向上させることに貢献しました。"
 thumbnail: "/work/yahoo-weather/thumbnail.avif"
 url: "https://weather.yahoo.co.jp/weather/"
 ---
