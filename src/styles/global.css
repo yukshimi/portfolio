@@ -100,27 +100,14 @@
     }
   }
 
+  /**
+   * リビール（スクロール出現）を無効化し、常に最初から表示する。
+   * `data-reveal` はマークアップ上残しても見た目に影響しない。
+   */
   [data-reveal] {
-    opacity: 0;
-    transform: translateY(var(--reveal-y, 10px));
-    transition:
-      opacity 600ms ease,
-      transform 600ms ease;
-    transition-delay: var(--reveal-delay, 0ms);
-    will-change: opacity, transform;
-  }
-
-  [data-reveal].is-revealed {
     opacity: 1;
-    transform: translateY(0);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    [data-reveal] {
-      opacity: 1;
-      transform: none;
-      transition: none;
-    }
+    transform: none;
+    transition: none;
   }
 }
 
