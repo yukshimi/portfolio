@@ -8,10 +8,6 @@ import { getEntryBySlug } from "astro:content";
 import { getAllWorks } from "../../data/works";
 import { profile } from "../../data/profile";
 
-interface Props {
-  params: { slug: string };
-}
-
 const { slug } = Astro.params;
 const entry = await getEntryBySlug("works", slug || "");
 const works = await getAllWorks();
