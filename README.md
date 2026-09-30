@@ -2,7 +2,7 @@
 
 ## 🚀 技術スタック
 
-- **Astro 7**: 静的サイト生成フレームワーク（Node.js 22.12 以上が必要）
+- **Astro 7**: 静的サイト生成フレームワーク（Node.js 22.12 以上が必要。バージョンは `.node-version` で指定）
 - **React**: インタラクティブなUIコンポーネント
 - **Tailwind CSS v4**: スタイリング（デザイントークンは `src/styles/global.css` の `@theme`）
 - **TypeScript**: 型安全性の確保
