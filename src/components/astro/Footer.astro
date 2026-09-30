@@ -16,13 +16,13 @@ const { profile } = Astro.props;
     </small>
     <span class="flex flex-row items-center gap-thin-gap max-[800px]:flex-wrap">
       <small class="opacity-50">Follow me:</small>
-      <span class="flex flex-row items-center gap-[calc(var(--thin-gap)/4)]">
+      <span class="flex flex-row items-center gap-1.5">
         {profile.socialLinks.map((social) => (
           <a
             href={social.url}
             target="_blank"
             rel="noreferrer"
-            class="p-[calc(var(--thin-gap)/4)] rounded-[8rem] hover:bg-line hover:scale-110 transition-all duration-200"
+            class="p-1.5 rounded-[8rem] hover:bg-line hover:scale-110 transition-all duration-200"
           >
             <img src={social.icon} alt={social.platform} class="block" />
           </a>

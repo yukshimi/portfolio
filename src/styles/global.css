@@ -19,6 +19,7 @@
   --text-p: 1rem;
   --text-small: 0.8rem;
 
+  /* 余白の基準はここに一本化（gap-thin-gap, py-section-gap などで使う） */
   --spacing-section-gap: 8rem;
   --spacing-div-gap: 6rem;
   --spacing-item-gap: 4rem;
@@ -27,18 +28,6 @@
 }
 
 @layer base {
-  /*
-   * calc(var(--thin-gap) / 2) のような任意値で使う間隔。
-   * 上の --spacing-* とは別の値なので注意（見た目維持のため現状のまま）
-   */
-  :root {
-    --min-gap: 1.5rem;
-    --thin-gap: 1.5rem;
-    --item-gap: 3rem;
-    --div-gap: 5rem;
-    --section-gap: 6rem;
-  }
-
   html {
     scroll-behavior: smooth;
     font-size: 20px;
@@ -181,26 +170,26 @@
    * 作品詳細のMarkdown本文用のスタイル
    */
   .work-markdown > * + * {
-    margin-top: var(--item-gap);
+    margin-top: 3rem;
   }
 
   /* 見出しの手前は少し広め（章の切れ目を作る） */
   .work-markdown > * + :is(h1, h2, h3, h4, h5, h6) {
-    margin-top: calc(var(--item-gap) * 3);
+    margin-top: 9rem;
   }
 
   /* 見出し直後は詰める */
   .work-markdown > :is(h1, h2, h3, h4, h5, h6) + * {
-    margin-top: calc(var(--item-gap) * 0.4);
+    margin-top: 1.2rem;
   }
 
   /* ul/ol の上はさらに詰める（特に見出し直後） */
   .work-markdown > * + :is(ul, ol) {
-    margin-top: calc(var(--item-gap) * 0.3);
+    margin-top: 0.9rem;
   }
 
   .work-markdown > :is(h1, h2, h3, h4, h5, h6) + :is(ul, ol) {
-    margin-top: calc(var(--item-gap) * 0.25);
+    margin-top: 0.75rem;
   }
 
   .work-markdown p {

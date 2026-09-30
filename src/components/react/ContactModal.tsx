@@ -191,7 +191,7 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
                     <button
                       type="button"
                       onClick={close}
-                      className="text-small font-semibold px-[calc(var(--thin-gap)/1.5)] py-[calc(var(--thin-gap)/2.5)] rounded-[8rem] bg-line hover:scale-105 transition-all duration-200"
+                      className="text-small font-semibold px-4 py-[0.6rem] rounded-[8rem] bg-line hover:scale-105 transition-all duration-200"
                     >
                       閉じる
                     </button>
@@ -211,7 +211,7 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
                   onSubmit={onSubmit}
                   className="flex flex-col gap-thin-gap"
                 >
-                  <label className="flex flex-col gap-[calc(var(--thin-gap)/4)]">
+                  <label className="flex flex-col gap-1.5">
                     <small className="opacity-50">お名前</small>
                     <input
                       ref={firstInputRef}
@@ -222,7 +222,7 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
                     />
                   </label>
 
-                  <label className="flex flex-col gap-[calc(var(--thin-gap)/4)]">
+                  <label className="flex flex-col gap-1.5">
                     <small className="opacity-50">メールアドレス</small>
                     <input
                       type="email"
@@ -232,7 +232,7 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
                     />
                   </label>
 
-                  <label className="flex flex-col gap-[calc(var(--thin-gap)/4)]">
+                  <label className="flex flex-col gap-1.5">
                     <small className="opacity-50">メッセージ</small>
                     <textarea
                       name="message"
@@ -263,7 +263,7 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
                       type="submit"
                       disabled={status === "sending"}
                       className={[
-                        "text-small font-semibold w-full max-w-[420px] px-[calc(var(--thin-gap)/1.5)] py-[calc(var(--thin-gap)/2.5)] rounded-[8rem] text-white bg-dark hover:scale-105 transition-all duration-200",
+                        "text-small font-semibold w-full max-w-[420px] px-4 py-[0.6rem] rounded-[8rem] text-white bg-dark hover:scale-105 transition-all duration-200",
                         status === "sending"
                           ? "opacity-50 pointer-events-none"
                           : "",
