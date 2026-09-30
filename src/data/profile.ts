@@ -5,12 +5,12 @@ import type { Profile } from "../types";
  */
 export const profile: Profile = {
   name: "Yuki Shimizu",
-  role: "UI/UX Designer",
+  role: "Product Designer / PdM",
   careers: [
     {
       period: "2026 – 現在",
       company: "スマサテ株式会社",
-      role: "プロダクトデザイナー兼PdM",
+      role: "プロダクトデザイナー / PdM",
       description:
         "新規施策の企画・立案からデザインまで、プロダクト開発を一気通貫で推進。ブランディングやマーケティングに関わるデザインも担当。",
     },
@@ -24,8 +24,9 @@ export const profile: Profile = {
     {
       period: "2021",
       company: "スタンバイ株式会社（出向）",
-      role: "デザイナー兼PM",
-      description: "デザイナー兼PMとしてサービスの改善に従事。",
+      role: "デザイナー / PM",
+      description:
+        "少人数チームでサービス改善を推進し、年間約200本のABテストを実施。",
     },
     {
       period: "2013",
