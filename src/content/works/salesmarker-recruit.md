@@ -15,7 +15,7 @@ url: "https://corp.sales-marker.jp/recruit/"
 ## プロジェクト
 
 採用担当の人事メンバーはウェブサイト制作の経験が多くなかったため、イメージを可視化しながら合意形成を進めることを重視しました。  
-まずはサイトマップとサイト内外の動線を整理し、必要なページとコンテンツを定義しました。
+まずはサイトマップとサイト内外の導線を整理し、必要なページとコンテンツを定義しました。
 
 ![](/work/salesmarker-recruit/01.avif)
 
@@ -38,6 +38,6 @@ url: "https://corp.sales-marker.jp/recruit/"
 - スタイリング
   - Sass → Tailwind CSS
 - WordPressのカスタムフィールド
-  - CustomFieldSuite → SecureCustomField
+  - Custom Field Suite → Secure Custom Fields
 
-またFigmaMCPを活用して、デザインデータから実装の叩き台を作成するなどの効率化にも取り組みました。
+またFigma MCPを活用して、デザインデータから実装の叩き台を作成するなどの効率化にも取り組みました。

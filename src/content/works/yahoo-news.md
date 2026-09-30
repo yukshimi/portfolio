@@ -1,10 +1,10 @@
 ---
 slug: "yahoo-news"
-category: "WebDesign/Development"
+category: "Web Design/Development"
 year: 2017
 company: "ヤフー株式会社"
-title: "ヤフーニュースのウェブのデザイン・実装"
-projectTitle: "ヤフーニュースのウェブのデザイン・実装"
+title: "ヤフーニュース（ウェブ）のデザイン・実装"
+projectTitle: "ヤフーニュース（ウェブ）のデザイン・実装"
 description: "2017年から2021年まで、ヤフーニュースのデザインチームリーダーとして、ウェブのデザインと実装を担当。React化の流れの中で、デザインと実装の橋渡し役としてリニューアル・改善を推進しました。また特集ページや新規サービスの立ち上げにも数多く参加し、幅広い領域の業務を担当しました。"
 thumbnail: "/work/yahoo-news/thumbnail.avif"
 url: "https://news.yahoo.co.jp/"
@@ -28,7 +28,7 @@ url: "https://news.yahoo.co.jp/"
 
 - セマンティックなマークアップの徹底
 - WAI-ARIAの活用
-- 読み上げブラウザでの確認、印刷時の表示の確認
+- スクリーンリーダーでの確認、印刷時の表示の確認
 - コントラストの担保
 - キーボードだけでの操作の担保
 

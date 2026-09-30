@@ -5,7 +5,7 @@ year: 2025
 company: "株式会社Sales Marker"
 title: "Sales Markerのブランディングデザイン"
 projectTitle: "Sales Markerのブランディングデザイン"
-description: "ブランディングデザイン部の部長として、メンバーのマネジメント、案件の推進、レビュー、改善の仕組み化などを実施。また、自らプロジェクトのリード、デザイン、実装等も担当して、プロダクトのブランディングやマーケティングを推進しています。"
+description: "ブランディングデザイン部の部長として、メンバーのマネジメント、案件の推進、レビュー、改善の仕組み化などを実施。また、自らプロジェクトのリード、デザイン、実装等も担当して、プロダクトのブランディングやマーケティングを推進しました。"
 thumbnail: "/work/salesmarker-branding/thumbnail.avif"
 ---
 
@@ -14,7 +14,7 @@ thumbnail: "/work/salesmarker-branding/thumbnail.avif"
 ## マネジメント
 
 ブランディングデザイン部の部長として、業務委託を含む10人程度のチームをマネジメントしました。  
-属人化や負荷の偏りを防ぐため、「**誰が担当しても進む状態**」を意識して運用を整えています。
+属人化や負荷の偏りを防ぐため、「**誰が担当しても進む状態**」を意識して運用を整えました。
 
 - **運用**: 定期的な1on1、マニュアル整備、依頼時の情報粒度の標準化
 - **制作効率**: 誰が見ても分かるデザインデータ、再利用しやすい実装の型づくり
@@ -27,7 +27,7 @@ thumbnail: "/work/salesmarker-branding/thumbnail.avif"
 
 ## クリエイティブ作成
 
-プレスリリースの画像や、セミナーの告知画像等、広告画像の作成等を担当しています。
+プレスリリース用の画像やセミナーの告知画像など、広告クリエイティブの作成を担当しました。
 
 ![](/work/salesmarker-branding/03.avif)
 
@@ -44,7 +44,7 @@ thumbnail: "/work/salesmarker-branding/thumbnail.avif"
 
 ![](/work/salesmarker-branding/06.avif)
 
-デザイナーと実装担当の連携がスムーズになるよう、Figmaと実装コードでデザイントークンを揃えるなどの工夫を図っています。
+デザイナーと実装担当の連携がスムーズになるよう、Figmaと実装コードでデザイントークンを揃えるなどの工夫をしました。
 
 ![](/work/salesmarker-branding/07.avif)
 
@@ -60,18 +60,18 @@ thumbnail: "/work/salesmarker-branding/thumbnail.avif"
 - スタイリング
   - Sass → Tailwind CSS
 - WordPressのカスタムフィールド
-  - CustomFieldSuite → SecureCustomField
+  - Custom Field Suite → Secure Custom Fields
 
 また、CursorやDevin等のAIを使ったコーディングをチームで取り入れ、制作のリードタイム短縮を図りました。
 
 ## 他チーム連携、プロジェクト推進
 
-マーケティングチームとの連携がうまくいっていないという課題があったため、簡易なスクラム体制導入を推進。
+マーケティングチームとの連携がうまくいっていないという課題があったため、簡易的なスクラム体制の導入を推進。
 デイリースクラム・スプリントプランニング・レトロスペクティブを通して、連携や運用の改善を進めました。
 
 ![](/work/salesmarker-branding/09.avif)
 
-タスク管理にはAsanaを使い、タスクの抜け漏れや遅延などを防いでいます。
-デザイナー以外からも、Asanaのフォームを通じてデザイナーに簡単に依頼ができるような仕組みを構築しています。
+タスク管理にはAsanaを使い、タスクの抜け漏れや遅延などを防ぎました。
+デザイナー以外からも、Asanaのフォームを通じてデザイナーに簡単に依頼ができる仕組みを構築しました。
 
 ![](/work/salesmarker-branding/10.avif)
