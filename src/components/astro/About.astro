@@ -23,11 +23,40 @@ const { profile } = Astro.props;
       <div class="flex flex-col items-start gap-thin-gap">
         <div>
           <h2 class="text-box-trim-both-cap">About me</h2>
-          <p class="mt-4">
+          <p class="mt-4 break-keep text-left">
             <b>{profile.name}</b>, {profile.role}
           </p>
         </div>
-        <p class="text-sm opacity-50 leading-7" set:html={profile.bio} />
+        <ol class="w-full">
+          {profile.careers.map((career) => (
+            <li class="grid grid-cols-[7rem_1fr] gap-4 py-4 border-t border-line first:border-t-0 first:pt-0 max-[800px]:grid-cols-1 max-[800px]:gap-1">
+              <p class="text-sm leading-6 opacity-50">{career.period}</p>
+              <div>
+                <h3 class="text-sm leading-6">{career.company}</h3>
+                {career.role && (
+                  <p class="text-sm leading-6 break-keep text-left">
+                    {career.role}
+                  </p>
+                )}
+                {career.description && (
+                  <p class="mt-1 text-sm leading-6 opacity-50">
+                    {career.description}
+                  </p>
+                )}
+              </div>
+            </li>
+          ))}
+        </ol>
+        <dl class="flex flex-col gap-2 text-sm leading-6 break-normal text-left">
+          <div class="flex flex-row gap-4 max-[800px]:flex-col max-[800px]:gap-0">
+            <dt class="flex-none w-[7rem] opacity-50">Skills</dt>
+            <dd class="opacity-50">{profile.skills.join(" / ")}</dd>
+          </div>
+          <div class="flex flex-row gap-4 max-[800px]:flex-col max-[800px]:gap-0">
+            <dt class="flex-none w-[7rem] opacity-50">保有資格</dt>
+            <dd class="opacity-50">{profile.qualifications.join("、")}</dd>
+          </div>
+        </dl>
         {profile.interviewUrls.length > 0 && (
           <ul class="flex flex-row items-center gap-thin-gap opacity-50">
             {profile.interviewUrls.map((item) => (
