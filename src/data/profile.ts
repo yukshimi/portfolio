@@ -31,6 +31,7 @@ export const profile: Profile = {
     {
       period: "2013",
       company: "ヤフー株式会社",
+      role: "ウェブデザイナー / フロントエンドエンジニア",
       description:
         "ショッピング、ニュース、天気等のサービスのデザインや実装を担当。",
     },

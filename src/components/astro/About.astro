@@ -23,7 +23,7 @@ const { profile } = Astro.props;
       <div class="flex flex-col items-start gap-thin-gap">
         <div>
           <h2 class="text-box-trim-both-cap">About me</h2>
-          <p class="mt-4">
+          <p class="mt-4 break-keep text-left">
             <b>{profile.name}</b>, {profile.role}
           </p>
         </div>
@@ -33,7 +33,11 @@ const { profile } = Astro.props;
               <p class="text-sm leading-6 opacity-50">{career.period}</p>
               <div>
                 <h3 class="text-sm leading-6">{career.company}</h3>
-                {career.role && <p class="text-sm leading-6">{career.role}</p>}
+                {career.role && (
+                  <p class="text-sm leading-6 break-keep text-left">
+                    {career.role}
+                  </p>
+                )}
                 {career.description && (
                   <p class="mt-1 text-sm leading-6 opacity-50">
                     {career.description}
