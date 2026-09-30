@@ -2,10 +2,10 @@
 slug: "standby"
 category: "Design/Development"
 year: 2021
-company: "スタンバイ株式会社"
+company: "株式会社スタンバイ"
 title: "求人サイト「スタンバイ」の制作・改善"
 projectTitle: "求人サイト「スタンバイ」の制作・改善"
-description: "ヤフー株式会社に所属したまま、スタンバイ株式会社に出向。少人数チームで、デザイナー兼PM兼エンジニアとしてサービス改善を推進。年間200本ほどのABテストを回しつつ、継続的なインタビューを通して、改善を進めました。"
+description: "ヤフー株式会社に所属したまま、株式会社スタンバイに出向。少人数チームで、デザイナー兼PM兼エンジニアとしてサービス改善を推進。年間200本ほどのABテストを回しつつ、継続的なインタビューを通して、改善を進めました。"
 thumbnail: "/work/stanby/thumbnail.avif"
 url: "https://jp.stanby.com/"
 ---

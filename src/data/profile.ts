@@ -23,7 +23,7 @@ export const profile: Profile = {
     },
     {
       period: "2021",
-      company: "スタンバイ株式会社（出向）",
+      company: "株式会社スタンバイ（出向）",
       role: "デザイナー / PM",
       description:
         "少人数チームでサービス改善を推進し、年間約200本のABテストを実施。",
