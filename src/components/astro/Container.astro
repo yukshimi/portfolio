@@ -1,0 +1,24 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
+  /** wide: 作品一覧など / narrow: About など本文幅 */
+  width?: "wide" | "narrow";
+};
+
+const {
+  as: Tag = "div",
+  width = "wide",
+  class: className,
+  ...rest
+} = Astro.props;
+
+const widthClass = {
+  wide: "w-[90vw] sm:w-[80vw] max-w-[1400px]",
+  narrow: "w-[90vw] max-w-[1000px]",
+}[width];
+---
+
+<Tag class:list={[widthClass, "mx-auto", className]} {...rest}>
+  <slot />
+</Tag>

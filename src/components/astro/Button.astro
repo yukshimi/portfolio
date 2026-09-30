@@ -36,14 +36,12 @@ const classes =
   `${baseClasses} ${variantClasses[variant]} ${mobileMenuClasses} ${className}`.trim();
 ---
 
-{
-  as === "button" ? (
-    <button type={type} class={classes} {...attrs}>
-      <slot />
-    </button>
-  ) : (
-    <a href={href ?? "#"} class={classes} {...attrs}>
-      <slot />
-    </a>
-  )
-}
+{as === "button" ? (
+  <button type={type} class={classes} {...attrs}>
+    <slot />
+  </button>
+) : (
+  <a href={href ?? "#"} class={classes} {...attrs}>
+    <slot />
+  </a>
+)}

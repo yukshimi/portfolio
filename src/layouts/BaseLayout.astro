@@ -1,8 +1,8 @@
 ---
 import "../styles/fonts.css";
 import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 import ContactModal from "../components/react/ContactModal";
-import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -18,11 +18,11 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 <html lang="ja" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <ViewTransitions />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={metaDescription} />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="googlebot" content="noindex, nofollow" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,7 +30,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <title>{title}</title>
+    <ClientRouter />
   </head>
   <body>
     <ContactModal client:load turnstileSiteKey={turnstileSiteKey} />
@@ -41,65 +41,8 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
       Skip to content
     </a>
     <slot />
-    <script is:inline>
-      (() => {
-        const initReveal = () => {
-          // Markdown本文（<Content />）の直下要素に data-reveal を付与して
-          // 既存のリビールアニメーションと同じ挙動（60ms刻み）に揃える
-          const markdownBlocks = document.querySelectorAll(".work-markdown");
-
-          markdownBlocks.forEach((container) => {
-            const children = container.querySelectorAll(":scope > *");
-
-            children.forEach((el, i) => {
-              el.setAttribute("data-reveal", "true");
-              el.style.setProperty("--reveal-delay", "0ms");
-            });
-          });
-
-          const revealTargets = document.querySelectorAll("[data-reveal]");
-          if (!revealTargets.length) return;
-
-          const prefersReducedMotion = window.matchMedia(
-            "(prefers-reduced-motion: reduce)",
-          ).matches;
-
-          if (prefersReducedMotion) {
-            revealTargets.forEach((el) => el.classList.add("is-revealed"));
-            return;
-          }
-
-          if (!("IntersectionObserver" in window)) {
-            revealTargets.forEach((el) => el.classList.add("is-revealed"));
-            return;
-          }
-
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (!entry.isIntersecting) return;
-                entry.target.classList.add("is-revealed");
-                observer.unobserve(entry.target);
-              });
-            },
-            {
-              root: null,
-              rootMargin: "0px 0px -10% 0px",
-              threshold: 0.1,
-            },
-          );
-
-          revealTargets.forEach((el) => {
-            if (el.classList.contains("is-revealed")) return;
-            observer.observe(el);
-          });
-        };
-
-        // 初回ロード
-        initReveal();
-        // View Transitions（クライアント遷移）後にも再初期化
-        document.addEventListener("astro:page-load", initReveal);
-      })();
+    <script>
+      import "../scripts/reveal";
     </script>
   </body>
 </html>

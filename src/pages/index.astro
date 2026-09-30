@@ -7,20 +7,19 @@ import About from "../components/astro/About.astro";
 import Footer from "../components/astro/Footer.astro";
 import { getAllWorks } from "../data/works";
 import { profile } from "../data/profile";
+import { toMetaDescription } from "../utils/meta";
 
 const works = await getAllWorks();
-const metaDescription = profile.bio
-  .replace(/<br\s*\/?>/gi, " ")
-  .replace(/<[^>]+>/g, "")
-  .trim()
-  .slice(0, 160);
 ---
 
-<BaseLayout title="Yuki Shimizu — Portfolio" description={metaDescription}>
+<BaseLayout
+  title={`${profile.name} — Portfolio`}
+  description={toMetaDescription(profile.bio)}
+>
   <Header />
   <main id="main">
-    <Hero title="Yuki Shimizu's Portfolio" />
-    <WorkGrid works={works} />
+    <Hero title={`${profile.name}'s Portfolio`} />
+    <WorkGrid works={works} size="lg" />
     <About profile={profile} />
   </main>
   <Footer profile={profile} />

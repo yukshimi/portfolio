@@ -37,9 +37,7 @@ interface Props {
 const {} = Astro.props;
 ---
 
-<div>
-  <!-- TODO: Markup -->
-</div>
+<div><!-- TODO: Markup --></div>
 ```
 
 ### Reactコンポーネント（Propsあり）

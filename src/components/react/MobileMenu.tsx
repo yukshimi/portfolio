@@ -21,9 +21,7 @@ export default function MobileMenu({ children }: MobileMenuProps) {
     };
   }, [isOpen]);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMenu = () => setIsOpen((prev) => !prev);
 
   return (
     <>
