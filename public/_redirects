@@ -1,0 +1,4 @@
+# Cloudflare Pages のリダイレクト設定
+# 旧URL（スラッグの誤字）から正しいURLへ転送
+/work/portfoli  /work/portfolio/  301
+/work/portfoli/ /work/portfolio/  301

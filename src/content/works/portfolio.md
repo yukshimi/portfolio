@@ -1,5 +1,5 @@
 ---
-slug: "portfoli"
+slug: "portfolio"
 category: "Design/Development"
 year: 2026
 company: "副業"
