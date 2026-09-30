@@ -34,7 +34,7 @@ thumbnail: "/work/salesmarker-product/thumbnail.avif"
 
 ![](/work/salesmarker-product/04.avif)
 
-デザインの意図が実装に反映されていない箇所やアニメーションは、React（Nuxt.js）のコードを自身で修正して完成度を高めました。  
+デザインの意図が実装に反映されていない箇所やアニメーションは、React（Next.js）のコードを自身で修正して完成度を高めました。  
 また、自身では修正が難しい箇所は自律型AIエージェント（Devin）も活用し、プルリクエストを送るなどして改善を進めました。
 
 ## UXデザインの進め方
