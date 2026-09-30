@@ -10,6 +10,20 @@ export type Work = CollectionEntry<"works">["data"] & {
 };
 
 /**
+ * 経歴（キャリア）1件分の型定義
+ */
+export interface Career {
+  /** 期間（例: "2023 – 現在"） */
+  period: string;
+  /** 会社名・組織名 */
+  company: string;
+  /** 役職・立場（オプション） */
+  role?: string;
+  /** 業務内容など（オプション） */
+  description?: string;
+}
+
+/**
  * プロフィール情報の型定義
  */
 export interface Profile {
@@ -17,8 +31,12 @@ export interface Profile {
   name: string;
   /** 役職・職業 */
   role: string;
-  /** 自己紹介文（HTML） */
-  bio: string;
+  /** 経歴（新しい順に並べる） */
+  careers: Career[];
+  /** 使用ツール・スキル */
+  skills: string[];
+  /** 保有資格 */
+  qualifications: string[];
   /** インタビューURL */
   interviewUrls: {
     name: string;

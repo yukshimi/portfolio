@@ -6,7 +6,44 @@ import type { Profile } from "../types";
 export const profile: Profile = {
   name: "Yuki Shimizu",
   role: "UI/UX Designer",
-  bio: "2013年に慶應義塾大学を卒業し、ヤフー株式会社に入社。ショッピング、ニュース、天気等のサービスのデザインや実装を担当。<br>2021年からスタンバイ株式会社に出向し、デザイナー兼PMとしてサービスの改善に従事。<br>2023年にSales Marker株式会社に転職し、1人目のデザイナーとして組織作りをしながら、プロダクトデザイン、ブランディング、マーケティング等を推進。現在はブランディングデザイン部の部長として幅広い業務を担当。<br><br>Figma / Illustrator / Photoshop / STUDIO / WordPress / Astro / React / Vue / TypeScript<br><br>保有資格：宅地建物取引士、応用情報技術者、TOEIC940点",
+  careers: [
+    {
+      period: "2023 – 現在",
+      company: "Sales Marker株式会社",
+      role: "ブランディングデザイン部 部長",
+      description:
+        "1人目のデザイナーとして入社し、組織作りをしながら、プロダクトデザイン、ブランディング、マーケティング等を推進。現在はブランディングデザイン部の部長として幅広い業務を担当。",
+    },
+    {
+      period: "2021",
+      company: "スタンバイ株式会社（出向）",
+      role: "デザイナー兼PM",
+      description: "デザイナー兼PMとしてサービスの改善に従事。",
+    },
+    {
+      period: "2013",
+      company: "ヤフー株式会社",
+      description:
+        "ショッピング、ニュース、天気等のサービスのデザインや実装を担当。",
+    },
+    {
+      period: "2013",
+      company: "慶應義塾大学",
+      role: "卒業",
+    },
+  ],
+  skills: [
+    "Figma",
+    "Illustrator",
+    "Photoshop",
+    "STUDIO",
+    "WordPress",
+    "Astro",
+    "React",
+    "Vue",
+    "TypeScript",
+  ],
+  qualifications: ["宅地建物取引士", "応用情報技術者", "TOEIC940点"],
   avatar: "/img/avatar.avif",
   interviewUrls: [
     {

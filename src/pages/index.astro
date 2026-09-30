@@ -10,12 +10,15 @@ import { profile } from "../data/profile";
 import { toMetaDescription } from "../utils/meta";
 
 const works = await getAllWorks();
+const metaDescription = toMetaDescription(
+  `${profile.name}, ${profile.role}. ` +
+    profile.careers
+      .map((career) => [career.company, career.role].filter(Boolean).join(" "))
+      .join(" / "),
+);
 ---
 
-<BaseLayout
-  title={`${profile.name} — Portfolio`}
-  description={toMetaDescription(profile.bio)}
->
+<BaseLayout title={`${profile.name} — Portfolio`} description={metaDescription}>
   <Header />
   <main id="main">
     <Hero title={`${profile.name}'s Portfolio`} />
