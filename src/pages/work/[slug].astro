@@ -1,118 +1,88 @@
 ---
+import type { GetStaticPaths } from "astro";
+import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/astro/Header.astro";
 import About from "../../components/astro/About.astro";
+import Container from "../../components/astro/Container.astro";
 import Footer from "../../components/astro/Footer.astro";
 import WorkGrid from "../../components/astro/WorkGrid.astro";
-import { getEntryBySlug } from "astro:content";
 import { getAllWorks } from "../../data/works";
 import { profile } from "../../data/profile";
-
-const { slug } = Astro.params;
-const entry = await getEntryBySlug("works", slug || "");
-const works = await getAllWorks();
-
-if (!entry) {
-  return Astro.redirect("/404");
-}
-
-const work = { ...entry.data, slug: entry.slug };
-const projectTitle = work.projectTitle ?? work.title;
-const workUrl = work.url;
-const markdownBody = entry.body?.trim();
-const { Content } = await entry.render();
-const metaDescription = [
-  work.company,
-  String(work.year),
-  work.detailDescription || work.description,
-]
-  .filter(Boolean)
-  .join(" / ")
-  .trim()
-  .slice(0, 160);
+import { toMetaDescription } from "../../utils/meta";
 
 // 静的生成のための全スラッグを取得
-export async function getStaticPaths() {
-  const works = await getAllWorks();
-  return works.map((work) => ({
-    params: { slug: work.slug },
+export const getStaticPaths = (async () => {
+  const entries = await getCollection("works");
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
   }));
-}
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props;
+const work = entry.data;
+const works = await getAllWorks();
+const { Content } = await render(entry);
+
+const description = work.detailDescription || work.description;
+const metaDescription = toMetaDescription(
+  [work.company, String(work.year), description].join(" / "),
+);
 ---
 
 <BaseLayout
-  title={`${work.title} | Yuki Shimizu`}
+  title={`${work.title} | ${profile.name}`}
   description={metaDescription}
 >
   <Header />
   <main id="main" class="flex flex-col gap-section-gap">
     <article class="flex flex-col gap-item-gap pt-item-gap pb-section-gap">
-      <header
-        class="flex flex-col gap-div-gap w-[90vw] sm:w-[80vw] max-w-[1400px] mx-auto"
-      >
-        <div class="flex flex-col items-start gap-item-gap">
-          <div class="flex flex-col items-start gap-2">
-            <h1 class="text-3xl sm:text-5xl leading-snug sm:leading-snug">
-              {projectTitle}
-            </h1>
-            {
-              workUrl && (
-                <a
-                  href={workUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  class="mt-2 text-sm opacity-50 break-all hover:opacity-100"
-                >
-                  {workUrl}
-                </a>
-              )
-            }
-          </div>
-
-          <div
-            class="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-min-gap sm:gap-thin-gap"
-          >
-            <p>
-              <b>{work.company}</b>
-            </p>
-            <div
-              class="flex flex-row items-center gap-[calc(var(--thin-gap)/2)]"
+      <Container as="header" class="flex flex-col items-start gap-item-gap">
+        <div class="flex flex-col items-start gap-2">
+          <h1 class="text-3xl sm:text-5xl leading-snug sm:leading-snug">
+            {work.projectTitle ?? work.title}
+          </h1>
+          {work.url && (
+            <a
+              href={work.url}
+              target="_blank"
+              rel="noreferrer"
+              class="mt-2 text-sm opacity-50 break-all hover:opacity-100"
             >
-              <img src="/img/icon/calendar.svg" alt="Year" class="block" />
-              <p>{work.year}</p>
-            </div>
-            <div
-              class="flex flex-row items-center gap-[calc(var(--thin-gap)/2)]"
-            >
-              <img src="/img/icon/tag.svg" alt="Category" class="block" />
-              <p>{work.category}</p>
-            </div>
-          </div>
-
-          <p class="opacity-50 leading-8">
-            {work.detailDescription || work.description}
-          </p>
+              {work.url}
+            </a>
+          )}
         </div>
-      </header>
 
-      <section
-        aria-label="Work detail"
-        class="flex flex-col gap-div-gap w-[90vw] sm:w-[80vw] max-w-[1400px] mx-auto"
-      >
-        <h2 class="sr-only">Work detail</h2>
-        {
-          markdownBody && (
-            <div class="work-markdown w-full min-w-0 max-w-full">
-              <Content />
-            </div>
-          )
-        }
-      </section>
+        <div class="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-min-gap sm:gap-thin-gap">
+          <p>
+            <b>{work.company}</b>
+          </p>
+          <div class="flex flex-row items-center gap-3">
+            <img src="/img/icon/calendar.svg" alt="Year" class="block" />
+            <p>{work.year}</p>
+          </div>
+          <div class="flex flex-row items-center gap-3">
+            <img src="/img/icon/tag.svg" alt="Category" class="block" />
+            <p>{work.category}</p>
+          </div>
+        </div>
+
+        <p class="opacity-50 leading-8">{description}</p>
+      </Container>
+
+      {entry.body?.trim() && (
+        <Container as="section" aria-label="Work detail">
+          <h2 class="sr-only">Work detail</h2>
+          <div class="work-markdown w-full min-w-0 max-w-full">
+            <Content />
+          </div>
+        </Container>
+      )}
     </article>
-    <div class="w-[90vw] sm:w-[90vw] max-w-[1400px] mx-auto">
-      <hr class="border-0 border-t border-line" />
-    </div>
-    <WorkGrid works={works} />
+    <hr class="w-[90vw] max-w-[1400px] mx-auto border-0 border-t border-line" />
+    <WorkGrid works={works} size="sm" />
     <About profile={profile} />
   </main>
   <Footer profile={profile} />

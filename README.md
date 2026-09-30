@@ -2,8 +2,9 @@
 
 ## 🚀 技術スタック
 
-- **Astro**: 静的サイト生成フレームワーク
+- **Astro 7**: 静的サイト生成フレームワーク（Node.js 22.12 以上が必要。バージョンは `.node-version` で指定）
 - **React**: インタラクティブなUIコンポーネント
+- **Tailwind CSS v4**: スタイリング（デザイントークンは `src/styles/global.css` の `@theme`）
 - **TypeScript**: 型安全性の確保
 
 ## 📁 プロジェクト構成
@@ -15,11 +16,15 @@ portfolio/
 │   ├── components/     # コンポーネント
 │   │   ├── astro/      # Astroコンポーネント
 │   │   └── react/      # Reactコンポーネント
-│   ├── data/           # データファイル
+│   ├── content/works/  # 作品のMarkdown
+│   ├── data/           # データファイル（プロフィールなど）
 │   ├── layouts/        # レイアウト
 │   ├── pages/          # ページ
+│   ├── scripts/        # クライアントサイドのスクリプト
 │   ├── styles/         # スタイル
-│   └── types/          # TypeScript型定義
+│   ├── types/          # TypeScript型定義
+│   ├── utils/          # ユーティリティ関数
+│   └── content.config.ts # コンテンツコレクションの定義
 └── package.json
 ```
 
@@ -74,18 +79,22 @@ Turnstile を使う場合（任意）：
 
 ### ワークの追加
 
-`src/data/works.ts` に新しいワークオブジェクトを追加してください：
+`src/content/works/` に Markdown ファイルを追加してください。frontmatter の項目は `src/content.config.ts` の schema で検証されます。
 
-```typescript
-{
-  slug: 'my-work',
-  title: 'My Work',
-  category: 'Design',
-  year: 2024,
-  description: 'Work description...',
-  thumbnail: '/work/my-work/thumbnail.webp',
-  images: ['/work/my-work/img1.webp', ...],
-}
+```markdown
+---
+slug: "my-work" # URL（/work/my-work/）になる
+category: "Design"
+year: 2024
+company: "会社名"
+title: "My Work"
+description: "Work description..."
+thumbnail: "/work/my-work/thumbnail.avif"
+---
+
+![](/work/my-work/main.avif)
+
+本文...
 ```
 
 ### プロフィール情報の変更

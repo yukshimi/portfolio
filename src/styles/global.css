@@ -1,18 +1,35 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/**
+ * デザイントークン
+ * - Tailwind のユーティリティ（bg-dark, gap-item-gap など）はここから生成される
+ */
+@theme {
+  --color-white: #ffffff;
+  --color-dark: #222222;
+  --color-shade-light: rgba(255, 255, 255, 0.8);
+  --color-line: rgba(128, 128, 128, 0.2);
+
+  --font-sans:
+    "Rethink Sans Adjusted", "Rethink Sans", "Noto Sans JP", sans-serif;
+
+  --text-h1: 3rem;
+  --text-h2: 2rem;
+  --text-h3: 1.5rem;
+  --text-p: 1rem;
+  --text-small: 0.8rem;
+
+  /* 余白の基準はここに一本化（gap-thin-gap, py-section-gap などで使う） */
+  --spacing-section-gap: 8rem;
+  --spacing-div-gap: 6rem;
+  --spacing-item-gap: 4rem;
+  --spacing-thin-gap: 2rem;
+  --spacing-min-gap: 1rem;
+}
 
 @layer base {
-  :root {
-    --min-gap: 1.5rem;
-    --thin-gap: 1.5rem;
-    --item-gap: 3rem;
-    --div-gap: 5rem;
-    --section-gap: 6rem;
-  }
-
   html {
-    @apply scroll-smooth;
+    scroll-behavior: smooth;
     font-size: 20px;
     font-feature-settings: "palt";
     letter-spacing: 0.15rem;
@@ -20,12 +37,6 @@
     word-break: break-all;
     scroll-padding-top: 4rem;
   }
-
-  /* @media (max-width: 1600px) {
-    html {
-      font-size: 16px;
-    }
-  } */
 
   html {
     font-size: 16px;
@@ -48,44 +59,74 @@
   }
 
   ::selection {
-    @apply bg-line;
+    background-color: var(--color-line);
   }
 
   body {
-    @apply font-sans text-dark bg-white m-0 z-[1];
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--color-dark);
+    background-color: var(--color-white);
   }
 
   img {
-    @apply max-w-full h-auto block;
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Tailwind v4 のプリフライトはボタンのカーソルが default になるため v3 と揃える */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
   }
 
   a {
-    @apply text-inherit no-underline transition-all duration-200;
+    color: inherit;
+    text-decoration: none;
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   b,
   strong {
-    @apply font-semibold;
+    font-weight: 600;
+  }
+
+  /*
+   * 要素のデフォルト書体サイズ。
+   * @apply ではなく素のCSSで書くのは、Tailwind v4 の @apply leading-* が
+   * CSS変数（--tw-leading）を設定し、text-xs などの行間指定を上書きしてしまうため
+   */
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    font-weight: 600;
   }
 
   h1 {
-    @apply text-h1 font-semibold m-0;
+    font-size: var(--text-h1);
   }
 
   h2 {
-    @apply text-h2 font-semibold m-0;
+    font-size: var(--text-h2);
   }
 
   h3 {
-    @apply text-h3 font-semibold m-0;
+    font-size: var(--text-h3);
   }
 
   p {
-    @apply text-p leading-6 font-normal m-0;
+    margin: 0;
+    font-size: var(--text-p);
+    font-weight: 400;
+    line-height: 1.5rem;
   }
 
   small {
-    @apply text-small font-normal m-0;
+    margin: 0;
+    font-size: var(--text-small);
+    font-weight: 400;
   }
 }
 
@@ -129,26 +170,26 @@
    * 作品詳細のMarkdown本文用のスタイル
    */
   .work-markdown > * + * {
-    margin-top: var(--item-gap);
+    margin-top: 3rem;
   }
 
   /* 見出しの手前は少し広め（章の切れ目を作る） */
   .work-markdown > * + :is(h1, h2, h3, h4, h5, h6) {
-    margin-top: calc(var(--item-gap) * 3);
+    margin-top: 9rem;
   }
 
   /* 見出し直後は詰める */
   .work-markdown > :is(h1, h2, h3, h4, h5, h6) + * {
-    margin-top: calc(var(--item-gap) * 0.4);
+    margin-top: 1.2rem;
   }
 
   /* ul/ol の上はさらに詰める（特に見出し直後） */
   .work-markdown > * + :is(ul, ol) {
-    margin-top: calc(var(--item-gap) * 0.3);
+    margin-top: 0.9rem;
   }
 
   .work-markdown > :is(h1, h2, h3, h4, h5, h6) + :is(ul, ol) {
-    margin-top: calc(var(--item-gap) * 0.25);
+    margin-top: 0.75rem;
   }
 
   .work-markdown p {

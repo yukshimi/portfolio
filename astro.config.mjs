@@ -1,38 +1,31 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
+import { satteri } from "@astrojs/markdown-satteri";
+
+/**
+ * Markdown内の画像に遅延読み込み属性を付与する hast プラグイン
+ */
+const lazyImages = {
+  name: "lazy-images",
+  element: {
+    filter: ["img"],
+    visit(node, ctx) {
+      const props = node.properties ?? {};
+      if (!props.loading) ctx.setProperty(node, "loading", "lazy");
+      if (!props.decoding) ctx.setProperty(node, "decoding", "async");
+    },
+  },
+};
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    react(),
-    tailwind({
-      applyBaseStyles: false, // グローバルCSSで管理するため
-    }),
-  ],
+  integrations: [react()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   markdown: {
-    rehypePlugins: [
-      () => {
-        return (tree) => {
-          const visit = (node) => {
-            if (!node || typeof node !== "object") return;
-
-            if (node.type === "element" && node.tagName === "img") {
-              node.properties ||= {};
-              node.properties.loading ||= "lazy";
-              node.properties.decoding ||= "async";
-            }
-
-            const children = node.children;
-            if (Array.isArray(children)) {
-              children.forEach(visit);
-            }
-          };
-
-          visit(tree);
-        };
-      },
-    ],
+    processor: satteri({ hastPlugins: [lazyImages] }),
   },
   output: "static",
   build: {

@@ -1,6 +1,10 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import type { FormEventHandler } from "react";
 
 type Status = "idle" | "sending" | "sent" | "error";
+
+const TITLE_ID = "contact-modal-title";
+const DEFAULT_ERROR_MESSAGE = "送信に失敗しました。";
 
 interface Props {
   turnstileSiteKey?: string;
@@ -29,21 +33,24 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
 
-  const dialogRef = useRef<HTMLDivElement | null>(null);
   const firstInputRef = useRef<HTMLInputElement | null>(null);
   const lastActiveRef = useRef<HTMLElement | null>(null);
 
   const showTurnstile = Boolean(turnstileSiteKey);
 
-  const titleId = useMemo(() => "contact-modal-title", []);
-
-  const close = () => {
+  const close = useCallback(() => {
     const shouldGoHome = status === "sent";
     setIsOpen(false);
     setStatus("idle");
     setErrorMessage("");
     window.turnstile?.reset?.();
     if (shouldGoHome) window.location.assign("/");
+  }, [status]);
+
+  const fail = (message?: string) => {
+    setStatus("error");
+    setErrorMessage(message || DEFAULT_ERROR_MESSAGE);
+    window.turnstile?.reset?.();
   };
 
   useEffect(() => {
@@ -86,16 +93,17 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
   }, [isOpen]);
 
   useEffect(() => {
+    if (!isOpen) return;
+
     const onKeyDown = (e: KeyboardEvent) => {
-      if (!isOpen) return;
       if (e.key === "Escape") close();
     };
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [isOpen]);
+  }, [isOpen, close]);
 
-  const onSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
+  const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     setStatus("sending");
     setErrorMessage("");
@@ -114,10 +122,7 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
       });
 
       if (!res.ok) {
-        const text = await res.text();
-        setStatus("error");
-        setErrorMessage(text || "送信に失敗しました。");
-        window.turnstile?.reset?.();
+        fail(await res.text());
         return;
       }
 
@@ -129,13 +134,9 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
         return;
       }
 
-      setStatus("error");
-      setErrorMessage(json.error || "送信に失敗しました。");
-      window.turnstile?.reset?.();
+      fail(json.error);
     } catch {
-      setStatus("error");
-      setErrorMessage("送信に失敗しました。");
-      window.turnstile?.reset?.();
+      fail();
     }
   };
 
@@ -155,10 +156,9 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
 
         <div className="absolute inset-0 flex items-center justify-center p-4">
           <div
-            ref={dialogRef}
             role="dialog"
             aria-modal="true"
-            aria-labelledby={titleId}
+            aria-labelledby={TITLE_ID}
             className={[
               "w-full max-w-[720px] rounded-[1.5rem] bg-white border border-line",
               "shadow-[0_20px_80px_rgba(0,0,0,0.18)]",
@@ -168,7 +168,7 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
             ].join(" ")}
           >
             <div className="flex items-start justify-between gap-4 p-6 border-b border-line">
-              <h2 id={titleId}>Contact</h2>
+              <h2 id={TITLE_ID}>Contact</h2>
               <button
                 type="button"
                 onClick={close}
@@ -191,7 +191,7 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
                     <button
                       type="button"
                       onClick={close}
-                      className="text-small font-semibold px-[calc(var(--thin-gap)/1.5)] py-[calc(var(--thin-gap)/2.5)] rounded-[8rem] bg-line hover:scale-105 transition-all duration-200"
+                      className="text-small font-semibold px-4 py-[0.6rem] rounded-[8rem] bg-line hover:scale-105 transition-all duration-200"
                     >
                       閉じる
                     </button>
@@ -200,7 +200,7 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
               )}
               {status === "error" && (
                 <p className="opacity-50 leading-8">
-                  {errorMessage || "送信に失敗しました。"}
+                  {errorMessage || DEFAULT_ERROR_MESSAGE}
                 </p>
               )}
 
@@ -211,7 +211,7 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
                   onSubmit={onSubmit}
                   className="flex flex-col gap-thin-gap"
                 >
-                  <label className="flex flex-col gap-[calc(var(--thin-gap)/4)]">
+                  <label className="flex flex-col gap-1.5">
                     <small className="opacity-50">お名前</small>
                     <input
                       ref={firstInputRef}
@@ -222,7 +222,7 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
                     />
                   </label>
 
-                  <label className="flex flex-col gap-[calc(var(--thin-gap)/4)]">
+                  <label className="flex flex-col gap-1.5">
                     <small className="opacity-50">メールアドレス</small>
                     <input
                       type="email"
@@ -232,7 +232,7 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
                     />
                   </label>
 
-                  <label className="flex flex-col gap-[calc(var(--thin-gap)/4)]">
+                  <label className="flex flex-col gap-1.5">
                     <small className="opacity-50">メッセージ</small>
                     <textarea
                       name="message"
@@ -263,7 +263,7 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
                       type="submit"
                       disabled={status === "sending"}
                       className={[
-                        "text-small font-semibold w-full max-w-[420px] px-[calc(var(--thin-gap)/1.5)] py-[calc(var(--thin-gap)/2.5)] rounded-[8rem] text-white bg-dark hover:scale-105 transition-all duration-200",
+                        "text-small font-semibold w-full max-w-[420px] px-4 py-[0.6rem] rounded-[8rem] text-white bg-dark hover:scale-105 transition-all duration-200",
                         status === "sending"
                           ? "opacity-50 pointer-events-none"
                           : "",

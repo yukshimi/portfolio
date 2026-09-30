@@ -1,65 +1,53 @@
 ---
 import type { Profile } from "../../types";
 import Button from "./Button.astro";
+import Container from "./Container.astro";
 
 interface Props {
   profile: Profile;
 }
 
-const { profile: profileData } = Astro.props;
+const { profile } = Astro.props;
 ---
 
-<section
-  id="about"
-  class="flex flex-col gap-div-gap w-[100vw] mx-auto py-section-gap bg-dark/5"
->
-  <div
-    class="flex flex-row items-start gap-item-gap w-[90vw] max-w-[1000px] mx-auto max-[800px]:flex-col max-[800px]:items-start"
+<section id="about" class="py-section-gap bg-dark/5">
+  <Container
+    width="narrow"
+    class="flex flex-row items-start gap-item-gap max-[800px]:flex-col"
   >
     <div
       class="aspect-square w-[280px] max-w-[45%] bg-center bg-cover flex-none max-[800px]:w-full max-[800px]:max-w-none"
-      style={`background-image: url('${profileData.avatar}');`}
-    >
-    </div>
+      style={`background-image: url('${profile.avatar}');`}
+    ></div>
     <div class="flex flex-col items-start gap-item-gap flex-1">
-      <div class="flex flex-col items-start gap-thin-gap max-[800px]:flex-col">
+      <div class="flex flex-col items-start gap-thin-gap">
         <div>
           <h2 class="text-box-trim-both-cap">About me</h2>
           <p class="mt-4">
-            <b>{profileData.name}</b>, {profileData.role}
+            <b>{profile.name}</b>, {profile.role}
           </p>
         </div>
-        <p class="text-sm opacity-50 leading-7" set:html={profileData.bio} />
-        {
-          profileData.interviewUrls?.length > 0 && (
-            <ul class="flex flex-row items-center gap-thin-gap opacity-50">
-              {profileData.interviewUrls.map((item) => (
-                <li>
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    class="underline"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )
-        }
+        <p class="text-sm opacity-50 leading-7" set:html={profile.bio} />
+        {profile.interviewUrls.length > 0 && (
+          <ul class="flex flex-row items-center gap-thin-gap opacity-50">
+            {profile.interviewUrls.map((item) => (
+              <li>
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="underline"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
-      <div
-        class="flex flex-row items-center gap-thin-gap max-[800px]:items-center max-[800px]:flex-wrap"
-      >
-        <Button
-          as="button"
-          variant="primary"
-          attrs={{ "data-contact-open": "true" }}
-        >
-          Get in touch
-        </Button>
-      </div>
+      <Button as="button" variant="primary" attrs={{ "data-contact-open": "" }}>
+        Get in touch
+      </Button>
     </div>
-  </div>
+  </Container>
 </section>
