@@ -19,9 +19,9 @@ thumbnail: "/work/portfolio/thumbnail.avif"
   - Astro + React + TypeScript
 - スタイリング
   - Tailwind CSS
-- デプロイ方法
-  - Cloudflare
-- 画像拡張子
+- デプロイ先
+  - Cloudflare Pages
+- 画像形式
   - AVIF
 - その他
   - Prettier
@@ -38,7 +38,7 @@ AstroでSSGとしてサイトを生成し、軽量なAVIF画像を採用した�
 積極的にAIを活用し、作業の効率化に取り組みました。
 
 具体的には、Cursorのルールを詳細に整備して生成コードの精度を上げ、作業を効率化しました。
-また、プロンプト入力には音声入力ツール（Aqua Voice）を併用し、詳細な指示を簡単かつ迅速に指定できるようにしました。
+また、プロンプト入力には音声入力ツール（Aqua Voice）を併用し、詳細な指示を素早く入力できるようにしました。
 
 ![](/work/portfolio/02.avif)
 
