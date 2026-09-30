@@ -52,7 +52,7 @@ export const profile: Profile = {
     "Vue",
     "TypeScript",
   ],
-  qualifications: ["宅地建物取引士", "応用情報技術者", "TOEIC 940点"],
+  qualifications: ["宅地建物取引士", "応用情報技術者", "TOEIC\u00a0940点"],
   avatar: "/img/avatar.avif",
   interviewUrls: [
     {
