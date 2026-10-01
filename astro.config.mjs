@@ -20,6 +20,7 @@ const lazyImages = {
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://portfolio-3ws.pages.dev",
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],

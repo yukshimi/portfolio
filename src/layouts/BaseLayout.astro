@@ -7,10 +7,14 @@ import ContactModal from "../components/react/ContactModal";
 interface Props {
   title: string;
   description?: string;
+  /** 共有時の画像（public 配下のパス）。X・Facebook は AVIF 非対応のため JPG/PNG を渡す */
+  image?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, image = "/ogp/default.jpg" } = Astro.props;
 const metaDescription = (description ?? title).trim();
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+const imageUrl = new URL(image, Astro.site).href;
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 ---
 
@@ -28,6 +32,8 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
     <meta property="og:locale" content="ja_JP" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:image" content={imageUrl} />
     <meta name="twitter:card" content="summary" />
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

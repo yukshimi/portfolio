@@ -1,4 +1,5 @@
 ---
+import { existsSync } from "node:fs";
 import type { GetStaticPaths } from "astro";
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
@@ -27,6 +28,10 @@ const otherWorks = (await getAllWorks()).filter((w) => w.slug !== entry.id);
 const { Content } = await render(entry);
 
 const description = work.detailDescription || work.description;
+// 共有用画像は public/ogp/<スラッグ>.jpg。無い作品はデフォルト画像を使う
+const ogpImage = `/ogp/${entry.id}.jpg`;
+const shareImage = existsSync(`public${ogpImage}`) ? ogpImage : undefined;
+
 const metaDescription = toMetaDescription(
   [work.company, String(work.year), description].join(" / "),
 );
@@ -35,6 +40,7 @@ const metaDescription = toMetaDescription(
 <BaseLayout
   title={`${work.title} | ${profile.name}`}
   description={metaDescription}
+  image={shareImage}
 >
   <Header />
   <main id="main" class="flex flex-col gap-section-gap">
