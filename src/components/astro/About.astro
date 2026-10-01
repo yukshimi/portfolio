@@ -61,7 +61,14 @@ const { profile } = Astro.props;
             </div>
             <div class="col-span-full grid grid-cols-subgrid max-[800px]:block">
               <dt class="whitespace-nowrap opacity-50">保有資格</dt>
-              <dd class="opacity-50">{profile.qualifications.join("、")}</dd>
+              <dd class="opacity-50">
+                {profile.qualifications.map((qualification, index) => (
+                  <>
+                    {index > 0 && "、"}
+                    <span class="whitespace-nowrap">{qualification}</span>
+                  </>
+                ))}
+              </dd>
             </div>
           </dl>
         </div>
