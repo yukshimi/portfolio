@@ -172,11 +172,13 @@ export const onRequestPost = async ({
       });
     }
 
+    // Resend のエラー本文は内部情報を含みうるため、ログにだけ残してクライアントには返さない
     const errorText = await sendRes.text().catch(() => "");
+    console.error("Resend error", sendRes.status, errorText);
     return new Response(
       JSON.stringify({
         ok: false,
-        error: errorText || "Upstream Error",
+        error: "Upstream Error",
       }),
       { status: 502, headers: { "Content-Type": "application/json" } },
     );

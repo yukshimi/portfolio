@@ -22,7 +22,8 @@ export const getStaticPaths = (async () => {
 
 const { entry } = Astro.props;
 const work = entry.data;
-const works = await getAllWorks();
+// 下部の作品一覧には、いま表示している作品を含めない
+const otherWorks = (await getAllWorks()).filter((w) => w.slug !== entry.id);
 const { Content } = await render(entry);
 
 const description = work.detailDescription || work.description;
@@ -82,7 +83,7 @@ const metaDescription = toMetaDescription(
       )}
     </article>
     <hr class="w-[90vw] max-w-[1400px] mx-auto border-0 border-t border-line" />
-    <WorkGrid works={works} size="sm" />
+    <WorkGrid works={otherWorks} size="sm" />
     <About profile={profile} />
   </main>
   <Footer profile={profile} />

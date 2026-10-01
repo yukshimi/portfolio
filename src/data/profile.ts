@@ -76,7 +76,7 @@ export const profile: Profile = {
       icon: "/img/icon/facebook.svg",
     },
     {
-      platform: "Twitter",
+      platform: "X",
       url: "https://x.com/yuukirinrin",
       icon: "/img/icon/twitter_x.svg",
     },

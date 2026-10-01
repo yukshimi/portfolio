@@ -4,7 +4,15 @@ import type { FormEventHandler } from "react";
 type Status = "idle" | "sending" | "sent" | "error";
 
 const TITLE_ID = "contact-modal-title";
-const DEFAULT_ERROR_MESSAGE = "送信に失敗しました。";
+const DEFAULT_ERROR_MESSAGE =
+  "送信に失敗しました。時間をおいて再度お試しください。";
+
+/** サーバーのステータスコードを、ユーザー向けのメッセージに変換する */
+function toErrorMessage(status: number): string {
+  if (status === 400) return "入力内容をご確認ください。";
+  if (status === 403) return "認証に失敗しました。もう一度お試しください。";
+  return DEFAULT_ERROR_MESSAGE;
+}
 
 interface Props {
   turnstileSiteKey?: string;
@@ -47,9 +55,9 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
     if (shouldGoHome) window.location.assign("/");
   }, [status]);
 
-  const fail = (message?: string) => {
+  const fail = (message: string = DEFAULT_ERROR_MESSAGE) => {
     setStatus("error");
-    setErrorMessage(message || DEFAULT_ERROR_MESSAGE);
+    setErrorMessage(message);
     window.turnstile?.reset?.();
   };
 
@@ -121,12 +129,13 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
         },
       });
 
+      // サーバーのエラー本文はそのまま表示せず、ステータスから文言を決める
       if (!res.ok) {
-        fail(await res.text());
+        fail(toErrorMessage(res.status));
         return;
       }
 
-      const json = (await res.json()) as { ok?: boolean; error?: string };
+      const json = (await res.json()) as { ok?: boolean };
       if (json.ok) {
         setStatus("sent");
         form.reset();
@@ -134,14 +143,16 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
         return;
       }
 
-      fail(json.error);
+      fail();
     } catch {
       fail();
     }
   };
 
   return (
-    <div aria-hidden={!isOpen}>
+    // 閉じている間は inert でフォーカス・クリック・読み上げの対象から外す
+    // （React 18 は inert を真偽値で扱えないため、空文字の属性として付与する）
+    <div aria-hidden={!isOpen} {...(isOpen ? {} : { inert: "" })}>
       <div
         className={[
           "fixed inset-0 z-[9999] transition-opacity duration-200",
@@ -184,7 +195,7 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
             <div className="p-6 flex flex-col gap-thin-gap">
               {status === "sent" && (
                 <div className="flex flex-col gap-thin-gap">
-                  <p className="opacity-50 leading-8">
+                  <p role="status" className="opacity-50 leading-8">
                     送信しました。ありがとうございます。
                   </p>
                   <div className="flex justify-center">
@@ -199,7 +210,7 @@ export default function ContactModal({ turnstileSiteKey }: Props) {
                 </div>
               )}
               {status === "error" && (
-                <p className="opacity-50 leading-8">
+                <p role="alert" className="opacity-50 leading-8">
                   {errorMessage || DEFAULT_ERROR_MESSAGE}
                 </p>
               )}
