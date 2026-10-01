@@ -11,6 +11,9 @@ interface Props {
 
 const { title, description } = Astro.props;
 const metaDescription = (description ?? title).trim();
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+// 共有時の画像は全ページ共通（1200×630）。X・Facebook は AVIF 非対応のため PNG を使う
+const imageUrl = new URL("/img/ogp.png", Astro.site).href;
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 ---
 
@@ -23,6 +26,16 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
     <meta name="robots" content="noindex, nofollow" />
     <meta name="googlebot" content="noindex, nofollow" />
     <title>{title}</title>
+    {/* URL共有時（Slack・SNSなど）のプレビュー用 */}
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

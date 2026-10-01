@@ -15,10 +15,15 @@ const { profile } = Astro.props;
     width="narrow"
     class="flex flex-row items-start gap-item-gap max-[800px]:flex-col"
   >
-    <div
-      class="aspect-square w-[280px] max-w-[45%] bg-center bg-cover flex-none max-[800px]:w-full max-[800px]:max-w-none"
-      style={`background-image: url('${profile.avatar}');`}
-    ></div>
+    <img
+      src={profile.avatar}
+      alt={profile.name}
+      width="1384"
+      height="1384"
+      loading="lazy"
+      decoding="async"
+      class="aspect-square w-[280px] max-w-[45%] object-cover flex-none max-[800px]:w-full max-[800px]:max-w-none"
+    />
     <div class="flex flex-col items-start gap-item-gap flex-1">
       <div class="flex flex-col items-start gap-thin-gap">
         <div>

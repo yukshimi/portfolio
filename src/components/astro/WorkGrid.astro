@@ -37,9 +37,15 @@ const styles = {
         >
           <div class="flex flex-col gap-3">
             <div class="aspect-square overflow-hidden">
-              <div
-                class="w-full h-full bg-center bg-cover transition-transform duration-500 ease-out will-change-transform group-hover:scale-105"
-                style={`background-image: url('${work.thumbnail}');`}
+              {/* タイトルが隣にあるので画像は装飾扱い（alt 空）にして二重読み上げを防ぐ */}
+              <img
+                src={work.thumbnail}
+                alt=""
+                width="1000"
+                height="1000"
+                loading={size === "lg" && index < 3 ? "eager" : "lazy"}
+                decoding="async"
+                class="w-full h-full object-cover transition-transform duration-500 ease-out will-change-transform group-hover:scale-105"
               />
             </div>
             <div class="flex flex-col gap-1">
